@@ -1,38 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My Cookbook
 
-## Getting Started
+A collection of my recipes and a beautiful Next.js app to use them in the kitchen.
 
-First, run the development server:
+![mockup](./mockup.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Usage
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Create or add recipes in the [Cooklang document format](https://cooklang.org/).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Run `npm run build` to build the site.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+I don't know what the CI/deployment pipeline will look like yet, but I'm sure it will be great!
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Goals
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Storing a catalog of recipes is a pain in the butt and it shouldn't be.
 
-## Learn More
+Recipes should be easy to read to read and easy to share. A good digital recipe catalog will be both.
 
-To learn more about Next.js, take a look at the following resources:
+The most important quality of a recipe catalog, however, is *permanence*.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+It isn't locked behind a specific account in a specific app; it isn't a ridiculous list of bookmarks in a browser; it doesn't disappear when a website goes down.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Git repositories are a great solution to the problem of keeping recipes; they only lack a good interface for reading and searching through them.
 
-## Deploy on Vercel
+I'm combining Git as a data store with GitHub Pages as a static site host and Next.js as a static site generator to create the best recipe catalog tool to exist.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## About my recipes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The recipes in this repository are a mix: some are my own, some are family recipes or recipes with no known origin, and some are from cookbooks or adapted from other sources.
+
