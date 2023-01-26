@@ -27,7 +27,7 @@ function buildRecipeMap() {
   directoryContents
     .filter((path) => path.endsWith('.cook'))
     .forEach((path) => {
-      const slug = path.replace(recipesDirectory, '').replace(/\.cook$/, '')
+      const slug = path.split('/').slice(-1)[0].replace(/\.cook$/, '')
       if (recipeMap.has(slug)) {
         throw new Error(`Duplicate slug: ${slug}`)
       }
