@@ -1,17 +1,13 @@
 import { getAllRecipesMetadata } from '@/lib/recipes'
-import styles from './page.module.css'
-
+import { RecipeCard } from '@/components/RecipeCard'
 
 export default async function Home() {
-  const recipes = await getAllRecipesMetadata()
-  console.log(recipes);
+  const recipeMetas = await getAllRecipesMetadata()
   return (
-    <main className={styles.main}>
-      <h1 className={styles.title}>Hello world</h1>
-      {recipes.map((recipe) => (
-        <pre key={recipe.slug}>
-          {JSON.stringify(recipe, null, 2)}
-        </pre>
+    <main>
+      <h1>Hello world</h1>
+      {recipeMetas.map((meta) => (
+        <RecipeCard key={meta.slug} metadata={meta} />
       ))}
     </main>
   )

@@ -30,3 +30,8 @@ I'm combining Git as a data store with GitHub Pages as a static site host and Ne
 
 The recipes in this repository are a mix: some are my own, some are family recipes or recipes with no known origin, and some are from cookbooks or adapted from other sources.
 
+## Ideas
+
+Some things that I'm considering implementing but aren't priorities for my own use or for 'launching'.
+
+- Localization options

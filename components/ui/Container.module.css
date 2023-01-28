@@ -1,0 +1,5 @@
+.container {
+  width: calc(100vw - 2 * var(--gutter));
+  max-width: 1600px;
+  margin: auto;
+}

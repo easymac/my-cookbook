@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header > * {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header-left > * {
+  margin-right: auto;
+}
+.header-right > * {
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+  }
+  .header-center {
+    min-width: 100%;
+    order: 3;
+  }
+  .header-left {
+    flex-shrink: 0;
+  }
+  .header-right {
+    flex: unset;
+  }
+}
