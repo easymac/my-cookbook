@@ -1,5 +1,5 @@
 import { SiteTitle } from '@/components/global/SiteTitle'
-import { MenuButton } from '@/components/global/MenuButton'
+import { MenuWrapperComponent } from '@/components/global/Menu'
 import { SearchBar } from '@/components/SearchBar'
 import styles from '@/components/global/Header.module.css'
 
@@ -13,7 +13,7 @@ export function Header() {
         <SearchBar />
       </div>
       <div className={styles['header-right']}>
-        <MenuButton />
+        <MenuWrapperComponent />
       </div>
     </header>
   )

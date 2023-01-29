@@ -1,7 +1,10 @@
 import { TbMenu } from 'react-icons/tb'
+import { Button } from '@/components/ui/Button'
 
-export function MenuButton() {
+export function MenuButton({ onOpen }) {
   return (
-    <div><TbMenu /></div>
+    <Button onClick={onOpen} className="menu-button">
+      <TbMenu />
+    </Button>
   )
 }
