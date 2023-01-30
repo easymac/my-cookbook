@@ -8,7 +8,7 @@
  * to only have to define the dark color scheme
  * once.
  */
-:root, html.light-theme {
+:root, body.light-theme {
   --light-primary-background: white;
   --light-secondary-background: #f0f0f0;
   --light-tertiary-background: #d9d9d9;
@@ -43,7 +43,7 @@
   The variables in this block MUST match the values
   in the media query :root block above.
 */
-html.dark-theme {
+body.dark-theme {
   --primary-background: var(--dark-primary-background);
   --secondary-background: var(--dark-secondary-background);
   --tertiary-background: var(--dark-tertiary-background);
@@ -53,4 +53,5 @@ html.dark-theme {
 body {
   background-color: var(--primary-background);
   color: var(--primary-text);
+  overflow-x: hidden;
 }

@@ -1,40 +1,60 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState, useRef, forwardRef } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { HiArrowLongLeft } from 'react-icons/hi2'
 import { MenuButton } from '@/components/global/MenuButton'
+import { DarkModeToggle } from '@/components/global/DarkModeToggle'
 import styles from './Menu.module.css'
 
 export function MenuWrapperComponent() {
+  const menuRef = useRef()
   const [isOpen, setIsOpen] = useState(false)
   const open = () => setIsOpen(true)
   const close = () => setIsOpen(false)
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        close()
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('focusin', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('focusin', handleClickOutside)
+    }
+  }, [menuRef])
+
   return (
     <>
       <MenuButton onOpen={open} />
-      <Menu isOpen={isOpen} onClose={close} />
+      <Menu isOpen={isOpen} onClose={close} ref={menuRef} />
     </>
   )
 }
 
-export function Menu({ onClose, isOpen }) {
+export const Menu = forwardRef(function Menu({ onClose, isOpen }, ref) {
   return (
-    <div className={
+    <div ref={ref} className={
       `${styles['menu']} ${isOpen ? styles['is-open'] : styles['is-closed']}`
     }>
-      <Button onClick={onClose} className={styles['close-button']}>
+      <Button
+        onClick={onClose}
+        className={styles['close-button']}
+        variant="tertiary"
+      >
         <HiArrowLongLeft />
       </Button>
       <div className={styles['menu-list']}>
+        <DarkModeToggle />
         <div className={styles['menu-item']}>
-          <div className={styles['item-heading']}>Dark mode</div>
-          <div className={styles['item-description']}>Toggle dark mode</div>
+          <Link href="/about">
+            <div className={styles['item-heading']}>About</div>
+          </Link>
         </div>
-        <Link href="/about" className={styles['menu-item']}>
-          <div className={styles['item-heading']}>About</div>
-        </Link>
       </div>
     </div>
   )
-}
+})
