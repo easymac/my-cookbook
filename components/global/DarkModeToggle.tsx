@@ -43,6 +43,7 @@ export function DarkModeToggle() {
   useEffect(() => {;
     setDarkMode(localStorage.getItem('darkMode'))
     toggleDarkMode(localStorage.getItem('darkMode'));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

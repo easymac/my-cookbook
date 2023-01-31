@@ -3,13 +3,14 @@
   top: 0;
   right: 0;
   bottom: 0;
-  width: 100vw;
+  width: calc(100vw + 3rem);
   max-width: 500px;
   box-sizing: border-box;
   background: var(--secondary-background);
   border-top-left-radius: 3rem;
   border-bottom-left-radius: 3rem;
   padding: 1rem calc(1rem + var(--gutter));
+  /* margin-left: -3rem; */
   overflow-y: auto;
   z-index: 1;
   transform: translateX(100%);
@@ -44,4 +45,19 @@
 .menu-item a {
   text-decoration: none;
   color: var(--primary-text);
+}
+
+@media (min-width: 500px) {
+  .close-button svg {
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: 500px) {
+  .menu {
+    padding-left: calc(2rem + var(--gutter));
+  }
+  .menu-list {
+    padding: 5rem 1rem;
+  }
 }
