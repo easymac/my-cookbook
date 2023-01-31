@@ -24,6 +24,8 @@
   --tertiary-background: var(--light-tertiary-background);
   --primary-text: var(--light-primary-text);
 
+  --primary-font-family: var(--public-sans);
+
   --gutter: 2rem;
 }
 
@@ -54,4 +56,5 @@ body {
   background-color: var(--primary-background);
   color: var(--primary-text);
   overflow-x: hidden;
+  font-family: var(--primary-font-family);
 }
