@@ -1,6 +1,15 @@
 import styles from './Button.module.css'
 
-function getButtonClasses(props) {
+interface ButtonProps {
+  variant?: 'primary' | 'secondary' | 'tertiary'
+  size?: 'small' | 'medium' | 'large'
+  disabled?: boolean
+  onClick: () => void
+  children: React.ReactNode
+  className?: string
+}
+
+function getButtonClasses(props: ButtonProps) {
   const {
     variant,
     size,
@@ -9,13 +18,15 @@ function getButtonClasses(props) {
 
   return [
     styles['button'],
-    styles[variant],
-    styles[size],
+    styles[variant || 'default'],
+    styles[size || 'default'],
     disabled && styles.disabled,
-  ].filter(Boolean).join(' ')
+  ]
+    .filter(Boolean)
+    .join(' ')
 }
 
-export function Button(props) {
+export function Button(props: ButtonProps) {
   const {
     onClick,
     children,

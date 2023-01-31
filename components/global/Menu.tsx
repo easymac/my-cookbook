@@ -8,14 +8,14 @@ import { DarkModeToggle } from '@/components/global/DarkModeToggle'
 import styles from './Menu.module.css'
 
 export function MenuWrapperComponent() {
-  const menuRef = useRef()
+  const menuRef = useRef<HTMLDivElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const open = () => setIsOpen(true)
   const close = () => setIsOpen(false)
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent | FocusEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         close()
       }
     }
@@ -35,7 +35,10 @@ export function MenuWrapperComponent() {
   )
 }
 
-export const Menu = forwardRef(function Menu({ onClose, isOpen }, ref) {
+export const Menu = forwardRef(function Menu(
+  { onClose, isOpen }: { onClose: () => void; isOpen: boolean },
+  ref: React.Ref<HTMLDivElement>
+) {
   return (
     <div ref={ref} className={
       `${styles['menu']} ${isOpen ? styles['is-open'] : styles['is-closed']}`

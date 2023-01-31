@@ -2,7 +2,9 @@ import { getRecipeBySlug } from '@/lib/recipes'
 import styles from './Recipe.module.css'
 
 export const dynamic = 'error'
-export default async function Page({ params }) {
+export default async function Page(
+  { params }: { params: { slug: string } },
+) {
   const recipe = await getRecipeBySlug(params.slug)
   return (
     <main className={styles.main}>

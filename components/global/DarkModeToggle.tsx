@@ -3,13 +3,10 @@ import { useEffect, useState } from 'react'
 import styles from './Menu.module.css'
 
 export function DarkModeToggle() {
-  const [darkMode, setDarkMode] = useState('Auto')
-  const options = ['Auto', 'Light', 'Dark']
+  const [darkMode, setDarkMode] = useState<'Auto' | 'Light' | 'Dark'>('Auto')
+  const options = ['Auto', 'Light', 'Dark'] as const
 
-  const toggleDarkMode = (target) => {
-    const index = options.indexOf(darkMode)
-    const nextIndex = index === options.length - 1 ? 0 : index + 1
-    target = target || options[nextIndex]
+  const toggleDarkMode = (target: typeof options[number] = options[(options.indexOf(darkMode) + 1) % options.length]) => {
     setDarkMode(target)
 
     if (target === 'Auto') {
@@ -30,7 +27,7 @@ export function DarkModeToggle() {
     localStorage.setItem('darkMode', target)
   }
 
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Enter') {
       toggleDarkMode()
     }
@@ -40,9 +37,9 @@ export function DarkModeToggle() {
     toggleDarkMode()
   }
 
-  useEffect(() => {;
-    setDarkMode(localStorage.getItem('darkMode'))
-    toggleDarkMode(localStorage.getItem('darkMode'));
+  useEffect(() => {
+    setDarkMode(localStorage.getItem('darkMode') as typeof options[number])
+    toggleDarkMode(localStorage.getItem('darkMode') as typeof options[number])
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

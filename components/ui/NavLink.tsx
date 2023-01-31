@@ -1,9 +1,17 @@
 'use client'
-import React from 'react'
+import { ReactNode } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-export function NavLink({ children, href, ...props }) {
+type Props = {
+  children: ReactNode,
+  href: string,
+  [key: string]: any,
+}
+
+export function NavLink(
+  { children, href, ...props }: Props
+) {
   const pathname = usePathname()
   return (
     <Link href={href} {...props} data-active={pathname === href}>
