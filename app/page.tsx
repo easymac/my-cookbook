@@ -1,15 +1,12 @@
-import { getAllRecipesMetadata } from '@/lib/recipes'
-import { RecipeCard } from '@/components/RecipeCard'
 import { Metadata } from '@cooklang/cooklang-ts'
+import { getAllRecipesMetadata } from '@/lib/recipes'
+import { RecipeList } from '@/components/RecipeList'
 
 export default async function Home() {
   const recipeMetas: Metadata[] = await getAllRecipesMetadata()
   return (
     <main>
-      <h1>Hello world</h1>
-      {recipeMetas.map((meta) => (
-        <RecipeCard key={meta.slug} metadata={meta} />
-      ))}
+      <RecipeList recipeMetas={recipeMetas} />
     </main>
   )
 }

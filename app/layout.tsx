@@ -16,7 +16,7 @@ export default function RootLayout({
       <body>
         <Container>
           <Header />
-            {children}
+          {children}
           <MobileNav />
         </Container>
       </body>
