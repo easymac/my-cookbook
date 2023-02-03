@@ -13,16 +13,19 @@
   --light-secondary-background: #f0f0f0;
   --light-tertiary-background: #d9d9d9;
   --light-primary-text: black;
+  --light-secondary-text: #3A3A3A;
 
   --dark-primary-background: black;
   --dark-secondary-background: #171717;
   --dark-tertiary-background: #2a2a2a;
   --dark-primary-text: white;
+  --dark-secondary-text: #D0D0D0;
 
   --primary-background: var(--light-primary-background);
   --secondary-background: var(--light-secondary-background);
   --tertiary-background: var(--light-tertiary-background);
   --primary-text: var(--light-primary-text);
+  --secondary-text: var(--light-secondary-text);
 
   --primary-font-family: var(--public-sans);
 
@@ -39,6 +42,7 @@
     --secondary-background: var(--dark-secondary-background);
     --tertiary-background: var(--dark-tertiary-background);
     --primary-text: var(--dark-primary-text);
+    --secondary-text: var(--dark-secondary-text);
   }
 }
 /*
@@ -50,6 +54,7 @@ body.dark-theme {
   --secondary-background: var(--dark-secondary-background);
   --tertiary-background: var(--dark-tertiary-background);
   --primary-text: var(--dark-primary-text);
+  --secondary-text: var(--dark-secondary-text);
 }
 
 body {
