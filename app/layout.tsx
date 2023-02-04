@@ -17,8 +17,8 @@ export default function RootLayout({
         <Container>
           <Header />
           {children}
-          <MobileNav />
         </Container>
+        <MobileNav />
       </body>
     </html>
   )

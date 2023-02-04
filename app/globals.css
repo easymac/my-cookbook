@@ -62,4 +62,9 @@ body {
   color: var(--primary-text);
   overflow-x: hidden;
   font-family: var(--primary-font-family);
+  position: relative;
+}
+
+html, body {
+  height: 100%;
 }
