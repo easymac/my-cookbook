@@ -1,0 +1,60 @@
+.interaction-control {
+  --active-color: var(--primary-text);
+  background: transparent;
+  border: none;
+  outline: none;
+  position: relative;
+  
+  font-size: 2rem;
+  cursor: pointer;
+
+  transition: transform 0.1s ease-in-out;
+}
+
+.interaction-control > div:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.interaction-control:active {
+  transform: scale(0.9);
+}
+
+.interaction-control .active-state {
+  color: var(--active-color);
+
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.interaction-control.active .active-state {
+  opacity: 1;
+}
+
+.inactive-state {
+  transition: opacity 0.1s ease-in-out;
+  opacity: 1;
+}
+.interaction-control.active .inactive-state {
+  opacity: 0;
+}
+
+
+.interaction-control .text {
+  opacity: 0;
+  font-size: 0.85rem;
+  transition: opacity 0.1s ease-in-out;
+}
+.interaction-control.active .text {
+  opacity: 1;
+}
+
+.cooked-button {
+  --active-color: #0CC857;
+}
+.favorited-button {
+  --active-color: #DD1521;
+}

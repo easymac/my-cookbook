@@ -9,23 +9,28 @@
  * once.
  */
 :root, body.light-theme {
+  --light-primary-background-ints: 255, 255, 255;
   --light-primary-background: white;
   --light-secondary-background: #f0f0f0;
   --light-tertiary-background: #d9d9d9;
   --light-primary-text: black;
   --light-secondary-text: #3A3A3A;
 
+  --dark-primary-background-ints: 0, 0, 0;
   --dark-primary-background: black;
   --dark-secondary-background: #171717;
   --dark-tertiary-background: #2a2a2a;
   --dark-primary-text: white;
   --dark-secondary-text: #D0D0D0;
 
+  --primary-background-ints: var(--light-primary-background-ints);
   --primary-background: var(--light-primary-background);
   --secondary-background: var(--light-secondary-background);
   --tertiary-background: var(--light-tertiary-background);
+  --accent-background: var(--dark-primary-background);
   --primary-text: var(--light-primary-text);
   --secondary-text: var(--light-secondary-text);
+  --accent-text: var(--dark-primary-text);
 
   --primary-font-family: var(--public-sans);
 
@@ -38,11 +43,14 @@
     in the html.dark-theme block below.
   */
   :root {
+    --primary-background-ints: var(--dark-primary-background-ints);
     --primary-background: var(--dark-primary-background);
     --secondary-background: var(--dark-secondary-background);
     --tertiary-background: var(--dark-tertiary-background);
+    --accent-background: var(--light-primary-background);
     --primary-text: var(--dark-primary-text);
     --secondary-text: var(--dark-secondary-text);
+    --accent-text: var(--light-primary-text);
   }
 }
 /*
@@ -50,11 +58,14 @@
   in the media query :root block above.
 */
 body.dark-theme {
+  --primary-background-ints: var(--dark-primary-background-ints);
   --primary-background: var(--dark-primary-background);
   --secondary-background: var(--dark-secondary-background);
   --tertiary-background: var(--dark-tertiary-background);
+  --accent-background: var(--light-primary-background);
   --primary-text: var(--dark-primary-text);
   --secondary-text: var(--dark-secondary-text);
+  --accent-text: var(--light-primary-text);
 }
 
 body {

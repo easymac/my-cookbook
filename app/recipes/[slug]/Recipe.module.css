@@ -1,0 +1,64 @@
+.image-wrapper {
+  margin-left: -1rem;
+  margin-right: -1rem;
+  display: block;
+  height: 500px;
+  position: relative;
+  border-radius: 4rem;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title {
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.description {
+  line-height: 1.75;
+  font-size: 1.1rem;
+}
+
+.description-expander {
+  position: relative;
+  max-height:  300px;
+  overflow: hidden;
+  --transition-duration: 0.5s;
+  transition:
+    max-height var(--transition-duration) ease-in-out,
+    padding-bottom 0.25s ease-in-out;
+}
+
+.description-expander.expanded {
+  max-height: var(--description-height);
+  padding-bottom: 2rem;
+}
+
+.description-expander::after {
+  position: absolute;
+  content: ' ';
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(var(--primary-background-ints), 0) 10%, rgba(var(--primary-background-ints), 1) 90%);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.description-expander.expanded::after {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.start-cooking {
+  display: block;
+  margin: auto;
+}

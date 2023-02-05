@@ -7,6 +7,7 @@
   background: transparent;
   cursor: pointer;
   transition: transform 0.2s ease-out;
+  font-weight: bold;
 }
 
 .button:focus-visible {
@@ -22,9 +23,21 @@
   height: auto;
 }
 
-.button.tertiary {
-  background: var(--tertiary-background);
+.button.accent {
+  background: var(--accent-background);
+  color: var(--accent-text);
+}
+.button.primary {
+  background: var(--primary-background);
 }
 .button.secondary {
   background: var(--secondary-background);
+}
+.button.tertiary {
+  background: var(--tertiary-background);
+}
+
+.button.large {
+  font-size: 0.9rem;
+  padding: 1.2rem 1.5rem;
 }

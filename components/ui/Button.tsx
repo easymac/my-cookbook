@@ -1,7 +1,7 @@
 import styles from './Button.module.css'
 
 interface ButtonProps {
-  variant?: 'primary' | 'secondary' | 'tertiary'
+  variant?: 'accent' | 'primary' | 'secondary' | 'tertiary'
   size?: 'small' | 'medium' | 'large'
   disabled?: boolean
   onClick: () => void
