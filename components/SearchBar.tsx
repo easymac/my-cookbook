@@ -10,7 +10,7 @@ export function SearchBar() {
   const router = useRouter()
   const searchParams = useSearchParams()
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: any) => {
     e.preventDefault();
     const rawSearchParams = new URLSearchParams(searchParams.toString())
     rawSearchParams.set('search', e.target.value)
@@ -27,7 +27,11 @@ export function SearchBar() {
         onChange={handleSearch}
         placeholder="Find a recipe"
       />
-      <Button className={styles['filter-icon']} variant="tertiary">
+      <Button
+        className={styles['filter-icon']}
+        variant="tertiary"
+        onClick={() => {}}
+      >
         <MdFilterList />
       </Button>
     </div>

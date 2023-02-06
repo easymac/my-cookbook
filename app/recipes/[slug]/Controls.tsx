@@ -6,8 +6,8 @@ import styles from './Controls.module.css'
 export function Controls() {
   return (
     <div className={styles['controls']}>
-      <CookedButton hasCooked={false} />
-      <FavoritedButton isFavorited={false} />
+      <CookedButton />
+      <FavoritedButton />
       <ShareButton />
     </div>
   )

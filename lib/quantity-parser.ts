@@ -6,7 +6,7 @@
  * @param {number} epsilon - The maximum error allowed.
  * @returns {number[]} [numerator, denominator]
  */
-export function decimalToFraction(quantity, epsilon = 0.0001) {
+export function decimalToFraction(quantity: number, epsilon = 0.0001): [number, number] {
   if (quantity == 0) return [0, 1]
 
   const absQuantity = Math.abs(quantity)
@@ -35,7 +35,7 @@ export function decimalToFraction(quantity, epsilon = 0.0001) {
  * @param {number | string} quantity
  * @returns {string}
  */
-export function parseQuantity(quantity) {
+export function parseQuantity(quantity: number | string): string {
   if (typeof quantity === 'string') {
     return quantity
   }
@@ -61,7 +61,7 @@ export function parseQuantity(quantity) {
  * @returns {string}
  */
 const FRACTION_REGEXP = /(\d+)\/(\d+)/
-const VULGAR_MAP = {
+const VULGAR_MAP: Record<string, string> = {
   '1/2': '½',
   '1/3': '⅓',
   '2/3': '⅔',
@@ -81,7 +81,7 @@ const VULGAR_MAP = {
   '1/9': '⅑',
   '1/10': '⅒',
 }
-export function parseVulgar(quantity) {
+export function parseVulgar(quantity: string | number): string {
   if (typeof quantity === 'string') {
     return quantity
       .split(' ')
@@ -121,4 +121,6 @@ export function parseVulgar(quantity) {
     }
     return `${numerator}/${denominator}`
   }
+
+  return ''
 }

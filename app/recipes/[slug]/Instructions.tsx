@@ -5,7 +5,7 @@ export function Instructions(
 ) {
   const formatStep = (step: any) => {
     
-    const fragments = step.map((part) => {
+    const fragments = step.map((part: any) => {
       if (part.type === 'text') return part.value
       if (part.type === 'ingredient') return part.name
       if (part.type === 'timer') return `${part.quantity} ${part.units}`

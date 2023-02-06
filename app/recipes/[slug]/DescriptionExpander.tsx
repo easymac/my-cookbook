@@ -1,6 +1,5 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
-import { Button } from '@/components/Button'
 import styles from './Recipe.module.css'
 
 export function DescriptionExpander(

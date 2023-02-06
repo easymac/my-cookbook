@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import { Button } from '@/components/ui/Button'
-import { getRecipeBySlug } from '@/lib/recipes'
+import { getRecipeBySlug, getAllRecipesMetadata } from '@/lib/recipes'
+import { StartCookingButton } from './StartCookingButton'
 import { Controls } from './Controls'
 import { DescriptionExpander } from './DescriptionExpander'
 import { IngredientsList } from './IngredientsList'
@@ -36,13 +36,7 @@ export default async function Page(
       <section className={styles['descrption']}>
         <DescriptionExpander description={metadata.description} />
       </section>
-      <Button
-        variant="accent"
-        size="large"
-        className={styles['start-cooking']}
-      >
-        Start cooking
-      </Button>
+      <StartCookingButton />
       <section className={styles['ingredients']}>
         <h2 className={styles['ingredients-title']}>Ingredients</h2>
         <IngredientsList ingredients={recipe.ingredients} />
@@ -51,13 +45,14 @@ export default async function Page(
         <h2 className={styles['instructions-title']}>Preparation</h2>
         <Instructions steps={recipe.steps} />
       </section>
-      <Button
-        variant="accent"
-        size="large"
-        className={styles['start-cooking']}
-      >
-        Start cooking
-      </Button>
+      <StartCookingButton />
     </main>
   )
+}
+
+export async function generateStaticParams() {
+  const recipeMetas = await getAllRecipesMetadata()
+  return recipeMetas.map((meta) => ({
+    slug: meta.slug,
+  }))
 }
