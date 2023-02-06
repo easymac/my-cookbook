@@ -13,7 +13,7 @@
   margin-left: -1rem;
   margin-right: -1rem;
   display: block;
-  height: 200px;
+  aspect-ratio: 1.8;
   position: relative;
   border-radius: 2rem;
   overflow: hidden;
