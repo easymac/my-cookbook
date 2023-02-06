@@ -4,6 +4,7 @@ import { getRecipeBySlug } from '@/lib/recipes'
 import { Controls } from './Controls'
 import { DescriptionExpander } from './DescriptionExpander'
 import { IngredientsList } from './IngredientsList'
+import { Instructions } from './Instructions'
 import styles from './Recipe.module.css'
 
 export const dynamic = 'error'
@@ -46,7 +47,17 @@ export default async function Page(
         <h2 className={styles['ingredients-title']}>Ingredients</h2>
         <IngredientsList ingredients={recipe.ingredients} />
       </section>
-      <pre>{JSON.stringify(recipe, null, 2)}</pre>
+      <section className={styles['instructions']}>
+        <h2 className={styles['instructions-title']}>Preparation</h2>
+        <Instructions steps={recipe.steps} />
+      </section>
+      <Button
+        variant="accent"
+        size="large"
+        className={styles['start-cooking']}
+      >
+        Start cooking
+      </Button>
     </main>
   )
 }
