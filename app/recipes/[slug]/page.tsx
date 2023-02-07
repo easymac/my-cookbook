@@ -36,7 +36,7 @@ export default async function Page(
       <section className={styles['descrption']}>
         <DescriptionExpander description={metadata.description} />
       </section>
-      <StartCookingButton />
+      <StartCookingButton steps={recipe.steps} ingredients={recipe.ingredients} />
       <section className={styles['ingredients']}>
         <h2 className={styles['ingredients-title']}>Ingredients</h2>
         <IngredientsList ingredients={recipe.ingredients} />
@@ -45,7 +45,6 @@ export default async function Page(
         <h2 className={styles['instructions-title']}>Preparation</h2>
         <Instructions steps={recipe.steps} />
       </section>
-      <StartCookingButton />
     </main>
   )
 }

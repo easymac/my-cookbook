@@ -34,7 +34,7 @@
 
   --primary-font-family: var(--public-sans);
 
-  --gutter: 2rem;
+  --gutter: 3rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -78,4 +78,6 @@ body {
 
 html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
