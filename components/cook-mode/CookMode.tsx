@@ -18,8 +18,20 @@ export function CookMode({ steps, ingredients, onClose }) {
         <HiArrowLongLeft />
       </Button>
       <div className={styles['tabs']}>
-        <Button onClick={() => setCurrentTab('ingredients')}>Ingredients</Button>
-        <Button onClick={() => setCurrentTab('directions')}>Directions</Button>
+        <Button
+          onClick={() => setCurrentTab('ingredients')}
+          className={`${styles['tab-button']} ${currentTab === 'ingredients' ? styles['tab-active'] : ''}`}
+          size="large"
+        >
+          Ingredients
+        </Button>
+        <Button
+          onClick={() => setCurrentTab('directions')}
+          className={`${styles['tab-button']} ${currentTab === 'directions' ? styles['tab-active'] : ''}`}
+          size="large"
+        >
+          Directions
+        </Button>
       </div>
       <div className={`${styles[`tab-active-${currentTab}`]} ${styles['tab-wrapper']}`}>
         <IngredientsTab ingredients={ingredients} />

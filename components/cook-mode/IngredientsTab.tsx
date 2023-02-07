@@ -1,6 +1,8 @@
 'use client'
 import { useState } from 'react'
 import { parseVulgar } from '@/lib/quantity-parser'
+import { BiCheckbox } from 'react-icons/bi'
+import { BsCheckSquareFill } from 'react-icons/bs'
 import styles from '@/components/cook-mode/CookMode.module.css'
 
 export function IngredientsTab({ ingredients }) {
@@ -26,7 +28,15 @@ export function IngredientsTab({ ingredients }) {
           ].join(' ')}
           onClick={() => handleClick(index)}
         >
-          <div className={`${styles['checkbox']}`} />
+          <div className={`${styles['checkbox']}`}>
+            {
+              completedIngredients[index] ? (
+                <BsCheckSquareFill />
+              ) : (
+                <BiCheckbox />
+              )
+            }
+          </div>
           <div className={styles['ingredient-text']}>
             {parseVulgar(ingredient.quantity)} {ingredient.name}
           </div>

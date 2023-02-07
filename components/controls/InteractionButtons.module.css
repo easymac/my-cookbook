@@ -54,8 +54,8 @@
 }
 
 .cooked-button {
-  --active-color: #0CC857;
+  --active-color: var(--good-green);
 }
 .favorited-button {
-  --active-color: #DD1521;
+  --active-color: var(--favorite-red);
 }

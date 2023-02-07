@@ -32,6 +32,9 @@
   --secondary-text: var(--light-secondary-text);
   --accent-text: var(--dark-primary-text);
 
+  --good-green: #0CC857;
+  --favorite-red: #DD1521;
+
   --primary-font-family: var(--public-sans);
 
   --gutter: 3rem;
