@@ -5,6 +5,7 @@ import { Controls } from './Controls'
 import { DescriptionExpander } from './DescriptionExpander'
 import { IngredientsList } from './IngredientsList'
 import { Instructions } from './Instructions'
+import { MetadataFields } from './MetadataFields'
 import styles from './Recipe.module.css'
 
 export const dynamic = 'error'
@@ -17,6 +18,9 @@ export default async function Page(
   return (
     <main className={styles.main}>
       <header className={styles.header}>
+        <div className={styles['title-wrapper']}>
+          <h1 className={styles.title}>{metadata.title}</h1>
+        </div>
         {image !== '' &&
           <div className={styles['image-wrapper']}>
             <Image
@@ -28,23 +32,36 @@ export default async function Page(
             />
           </div>
         }
-        <h1 className={styles.title}>{metadata.title}</h1>
       </header>
-      <section className={styles['interaction-controls']}>
-        <Controls />
-      </section>
-      <section className={styles['descrption']}>
-        <DescriptionExpander description={metadata.description} />
-      </section>
-      <StartCookingButton steps={recipe.steps} ingredients={recipe.ingredients} />
-      <section className={styles['ingredients']}>
-        <h2 className={styles['ingredients-title']}>Ingredients</h2>
-        <IngredientsList ingredients={recipe.ingredients} />
-      </section>
-      <section className={styles['instructions']}>
-        <h2 className={styles['instructions-title']}>Preparation</h2>
-        <Instructions steps={recipe.steps} />
-      </section>
+      <div className={[styles['grid-wrapper'], styles['meta-wrapper']].join(' ')}>
+        <section className={styles['interaction-controls']}>
+          <div className={styles['metadata']}>
+            <MetadataFields metadata={metadata} />
+          </div>
+          <div className={styles['controls']}>
+            <Controls />
+          </div>
+        </section>
+        <section className={styles['descrption']}>
+          <DescriptionExpander description={metadata.description} />
+        </section>
+      </div>
+      <StartCookingButton
+        steps={recipe.steps}
+        ingredients={recipe.ingredients}
+        className={'start-cooking'}
+      />
+      <div className={styles['grid-wrapper']}>
+        <section className={styles['ingredients']}>
+          <h2 className={styles['ingredients-title']}>Ingredients</h2>
+          <h4 className={styles['yield']}>Yield: {metadata.yield}</h4>
+          <IngredientsList ingredients={recipe.ingredients} />
+        </section>
+        <section className={styles['instructions']}>
+          <h2 className={styles['instructions-title']}>Preparation</h2>
+          <Instructions steps={recipe.steps} />
+        </section>
+      </div>
     </main>
   )
 }
