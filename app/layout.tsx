@@ -4,6 +4,7 @@ import { Container } from '@/components/ui/Container'
 import { MobileNav } from '@/components/global/MobileNav'
 
 import './globals.css'
+import '@icon-park/react/styles/index.css'
 
 export default function RootLayout({
   children,

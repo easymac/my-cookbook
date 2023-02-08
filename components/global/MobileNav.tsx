@@ -1,7 +1,9 @@
+'use client'
 import { NavLink } from '@/components/ui/NavLink'
 import { FaUtensils } from 'react-icons/fa'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { BiStopwatch } from 'react-icons/bi'
+import { ChefHat } from '@icon-park/react'
 import styles from './MobileNav.module.css'
 
 export function MobileNav() {
@@ -10,7 +12,7 @@ export function MobileNav() {
       <div className={styles['mobile-nav']}>
         <NavLink href="/">
           <div className={styles['link-icon']}>
-            <FaUtensils />
+            <ChefHat theme="outline" size="24" fill="#333"/>
           </div>
           <div className={styles['link-text']}>Recipes</div>
         </NavLink>
