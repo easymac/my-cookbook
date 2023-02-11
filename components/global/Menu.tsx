@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState, useRef, forwardRef } from 'react'
 import Link from 'next/link'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { HiArrowLongLeft } from 'react-icons/hi2'
 import { MenuButton } from '@/components/global/MenuButton'
@@ -39,25 +40,41 @@ export const Menu = forwardRef(function Menu(
   { onClose, isOpen }: { onClose: () => void; isOpen: boolean },
   ref: React.Ref<HTMLDivElement>
 ) {
+  const handleDragEnd = (e: any, info: any) => {
+    if (info.offset.x > 100 || info.velocity.x > 1000) onClose()
+  }
   return (
-    <div ref={ref} className={
-      `${styles['menu']} ${isOpen ? styles['is-open'] : styles['is-closed']}`
-    }>
-      <Button
-        onClick={onClose}
-        className={styles['close-button']}
-        variant="tertiary"
-      >
-        <HiArrowLongLeft />
-      </Button>
-      <div className={styles['menu-list']}>
-        <DarkModeToggle />
-        <div className={styles['menu-item']}>
-          <Link href="/about">
-            <div className={styles['item-heading']}>About</div>
-          </Link>
-        </div>
-      </div>
-    </div>
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          drag="x"
+          dragPropagataion
+          dragSnapToOrigin
+          onDragEnd={handleDragEnd}
+          initial={{ x: '100%' }}
+          animate={{ x: 0 }}
+          exit={{ x: '100%' }}
+          className={styles['menu-wrapper']}
+        >
+          <div ref={ref} className={styles['menu']}>
+            <Button
+              onClick={onClose}
+              className={styles['close-button']}
+              variant="tertiary"
+            >
+              <HiArrowLongLeft />
+            </Button>
+            <div className={styles['menu-list']}>
+              <DarkModeToggle />
+              <div className={styles['menu-item']}>
+                <Link href="/about">
+                  <div className={styles['item-heading']}>About</div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 })
