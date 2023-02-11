@@ -1,4 +1,4 @@
-.cook-mode-panel {
+.cook-mode-panel-wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,6 +7,24 @@
   
   background: var(--primary-background);
   z-index: 9999;
+}
+
+.cook-mode-panel-wrapper::after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  bottom: 0;
+  width: 9999px;
+  background: var(--primary-background);
+}
+
+.cook-mode-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 
   padding: calc(var(--gutter) / 2);
 

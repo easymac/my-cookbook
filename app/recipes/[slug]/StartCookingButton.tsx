@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/Button'
 import { CookMode } from '@/components/cook-mode/CookMode'
 import styles from './Recipe.module.css'
 
-export function StartCookingButton({ steps, ingredients }) {
+export function StartCookingButton({ recipe, steps, ingredients }) {
   const [isCooking, setIsCooking] = useState(false)
   return (
     <>
@@ -16,10 +16,14 @@ export function StartCookingButton({ steps, ingredients }) {
       >
         Start cooking
       </Button>
-      {
-        isCooking &&
-        <CookMode steps={steps} ingredients={ingredients} onClose={() => setIsCooking(false)} />
-      }
+      
+      <CookMode
+        recipe={recipe}
+        onClose={() => setIsCooking(false)}
+        visible={isCooking}
+        ingredients={ingredients}
+        steps={steps}
+      />
     </>
   )
 }
