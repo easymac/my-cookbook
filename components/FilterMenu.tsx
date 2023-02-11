@@ -29,9 +29,17 @@ export function FilterMenu(
     router.replace(`/?${rawSearchParams.toString()}`)
   }
 
+  const getFilterButtonClass = (tag: string) => {
+    const filtersArray = filters ? filters.split(',') : []
+    if (filtersArray.includes(tag)) {
+      return `${styles['filter-button-active']} ${styles['filter-button']}`
+    } else {
+      return styles['filter-button']
+    }
+  }
 
   let classes = styles['filter-menu']
-  if (visible) classes += styles['filter-menu-visible']
+  if (visible) classes += ` ${styles['filter-menu-visible']}`
   return (
     <div className={classes}>
       <div className={styles['filter-menu-header']}>
@@ -43,7 +51,7 @@ export function FilterMenu(
           <Button
             key={tag}
             onClick={() => handleFilter(tag)}
-            className={styles['filter-button']}
+            className={getFilterButtonClass(tag)}
           >
             {tag.charAt(0).toUpperCase() + tag.slice(1)}
           </Button>

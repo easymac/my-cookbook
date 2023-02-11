@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button'
 import { FilterMenu } from '@/components/FilterMenu'
 import styles from '@/components/SearchBar.module.css'
 
-export function SearchBar() {
+export function SearchBar({ toggleFilterMenu }: { toggleFilterMenu: () => void}) {
   const router = useRouter()
   const searchParams = useSearchParams()
 
@@ -31,7 +31,7 @@ export function SearchBar() {
       <Button
         className={styles['filter-icon']}
         variant="tertiary"
-        onClick={() => {}}
+        onClick={toggleFilterMenu}
       >
         <MdFilterList />
       </Button>
