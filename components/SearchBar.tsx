@@ -4,6 +4,7 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import { FiSearch } from 'react-icons/fi'
 import { MdFilterList } from 'react-icons/md'
 import { Button } from '@/components/ui/Button'
+import { FilterMenu } from '@/components/FilterMenu'
 import styles from '@/components/SearchBar.module.css'
 
 export function SearchBar() {

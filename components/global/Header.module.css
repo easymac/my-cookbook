@@ -18,6 +18,12 @@
   margin-left: auto;
 }
 
+.search-and-filter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .header {
     flex-wrap: wrap;

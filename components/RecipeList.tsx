@@ -15,6 +15,9 @@ export function RecipeList(
   if (search) filteredRecipes = filteredRecipes.filter(
     (meta) => meta.title.toLowerCase().includes(search.toLowerCase())
   )
+  if (filters) filteredRecipes = filteredRecipes.filter(
+    (meta) => filters.split(',').every((filter) => meta.tags.includes(filter))
+  )
 
   return (
     <div className={styles['recipe-list']}>

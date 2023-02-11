@@ -13,6 +13,7 @@
   --light-primary-background: white;
   --light-secondary-background: #f0f0f0;
   --light-tertiary-background: #d9d9d9;
+  --light-quaternary-background: #b4b4b4;
   --light-primary-text: black;
   --light-secondary-text: #3A3A3A;
 
@@ -20,6 +21,7 @@
   --dark-primary-background: black;
   --dark-secondary-background: #171717;
   --dark-tertiary-background: #2a2a2a;
+  --dark-quaternary-background: #4e4e4e;
   --dark-primary-text: white;
   --dark-secondary-text: #D0D0D0;
 
@@ -27,6 +29,7 @@
   --primary-background: var(--light-primary-background);
   --secondary-background: var(--light-secondary-background);
   --tertiary-background: var(--light-tertiary-background);
+  --quaternary-background: var(--light-quaternary-background);
   --accent-background: var(--dark-primary-background);
   --primary-text: var(--light-primary-text);
   --secondary-text: var(--light-secondary-text);
@@ -50,6 +53,7 @@
     --primary-background: var(--dark-primary-background);
     --secondary-background: var(--dark-secondary-background);
     --tertiary-background: var(--dark-tertiary-background);
+    --quaternary-background: var(--dark-quaternary-background);
     --accent-background: var(--light-primary-background);
     --primary-text: var(--dark-primary-text);
     --secondary-text: var(--dark-secondary-text);
@@ -65,6 +69,7 @@ body.dark-theme {
   --primary-background: var(--dark-primary-background);
   --secondary-background: var(--dark-secondary-background);
   --tertiary-background: var(--dark-tertiary-background);
+  --quaternary-background: var(--dark-quaternary-background);
   --accent-background: var(--light-primary-background);
   --primary-text: var(--dark-primary-text);
   --secondary-text: var(--dark-secondary-text);

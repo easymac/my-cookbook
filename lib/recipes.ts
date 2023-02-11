@@ -6,6 +6,16 @@ const recipesDirectory = path.join(process.cwd(), 'public/recipes')
 
 const recipeMap = buildRecipeMap()
 
+export function getAllTags(): string[] {
+  const tags = new Set()
+  for (const recipe of recipeMap.values()) {
+    if (recipe.metadata.tags) {
+      recipe.metadata.tags.split(',').forEach((tag) => tags.add(tag.trim()))
+    }
+  }
+  return Array.from(tags)
+}
+
 export function getAllRecipes(): Recipe[] {
   return Array.from(recipeMap.values())
 }

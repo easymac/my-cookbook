@@ -1,0 +1,17 @@
+.filter-menu {
+  background: var(--tertiary-background);
+  border-radius: 1.75rem;
+  padding: 1.5rem;
+  margin: 1rem -1rem 0 -1rem;
+}
+
+.filter-menu-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-button {
+  border: 2px solid var(--quaternary-background);
+  margin-right: 0.33rem;
+  margin-bottom: 0.5rem;
+}
