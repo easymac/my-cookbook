@@ -13,6 +13,7 @@ export default async function Page(
   { params }: { params: { slug: string } },
 ) {
   const recipe = await getRecipeBySlug(params.slug)
+  if (!recipe) return null
   const metadata = recipe.metadata
   const image = metadata.images.split(', ')[0]
   return (
