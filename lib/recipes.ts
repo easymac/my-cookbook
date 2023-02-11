@@ -69,8 +69,12 @@ function buildRecipeMap() {
         .slice(0, -1)
         .filter((tag) => tag.length)
         .filter((tag) => recipeTags.indexOf(tag) === -1)
-      
-      recipe.metadata.tags = recipe.metadata.tags + ', ' + directoryTags.join(', ')
+    
+      if (recipe.metadata.tags) {
+        recipe.metadata.tags = recipe.metadata.tags + ', ' + directoryTags.join(', ')
+      } else {
+        recipe.metadata.tags = directoryTags.join(', ')
+      }
 
       recipeMap.set(slug, recipe)
     })
