@@ -10,7 +10,10 @@ export function getAllTags(): string[] {
   const tags = new Set()
   for (const recipe of recipeMap.values()) {
     if (recipe.metadata.tags) {
-      recipe.metadata.tags.split(',').forEach((tag) => tags.add(tag.trim()))
+      recipe.metadata.tags
+        .split(',')
+        .filter(tag => tag !== ' ')
+        .forEach((tag) => tags.add(tag.trim()))
     }
   }
   return Array.from(tags)
