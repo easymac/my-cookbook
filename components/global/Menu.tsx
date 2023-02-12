@@ -40,14 +40,20 @@ export const Menu = forwardRef(function Menu(
   { onClose, isOpen }: { onClose: () => void; isOpen: boolean },
   ref: React.Ref<HTMLDivElement>
 ) {
+  const handleDragStart = () => {
+    document.body.style.overflow = 'hidden'
+  }
   const handleDragEnd = (e: any, info: any) => {
     if (info.offset.x > 100 || info.velocity.x > 1000) onClose()
+    document.body.style.overflow = 'auto'
   }
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
           drag="x"
+          onDragStart={handleDragStart}
+          dragDirectionLock
           dragPropagataion
           dragSnapToOrigin
           onDragEnd={handleDragEnd}
