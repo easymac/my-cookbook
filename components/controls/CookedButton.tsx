@@ -5,18 +5,23 @@ import { BiCheckboxChecked, BiCheckbox } from 'react-icons/bi'
 import { BsCheckSquareFill } from 'react-icons/bs'
 
 export function CookedButton(
-  
+  { slug }: { slug: string }
 ) {
-  const [hasCooked, setHasCooked] = useState(false)
+  const cookedRecipes = JSON.parse(localStorage.getItem('cookedRecipes'))
+  const [hasCooked, setHasCooked] = useState(cookedRecipes && cookedRecipes[slug])
+
+  const handleClick = () => {
+    setHasCooked(!hasCooked)
+    let cookedRecipes = JSON.parse(localStorage.getItem('cookedRecipes')) || {}
+    cookedRecipes[slug] = !hasCooked
+    localStorage.setItem('cookedRecipes', JSON.stringify(cookedRecipes))
+  }
+
   let classes = [
     styles['cooked-button'],
     styles['interaction-control']
   ];
   if (hasCooked) classes.push(styles['active'])
-
-  const handleClick = () => {
-    setHasCooked(!hasCooked)
-  }
   return (
     <button
       onClick={handleClick}

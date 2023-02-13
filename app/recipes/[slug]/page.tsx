@@ -40,7 +40,7 @@ export default async function Page(
             <MetadataFields metadata={metadata} />
           </div>
           <div className={styles['controls']}>
-            <Controls />
+            <Controls metadata={metadata} />
           </div>
         </section>
         <section className={styles['descrption']}>
