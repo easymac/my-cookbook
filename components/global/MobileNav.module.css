@@ -14,7 +14,7 @@
   border-top-right-radius: 3rem;
   margin-left: -1rem;
   margin-right: -1rem;
-  padding: 1rem calc(1rem + var(--gutter));
+  padding: 1rem calc(0rem + var(--gutter));
 }
 
 .mobile-nav a {
@@ -25,11 +25,25 @@
   align-items: center;
   text-decoration: none;
   font-weight: 600;
+  max-width: 56px;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  transition: max-width 0.2s ease-in-out;
 }
 .mobile-nav a[data-active=true] {
   background: var(--tertiary-background);
+  max-width: 100%;
 }
 
+.link-text {
+  white-space: pre;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+.mobile-nav a[data-active=true] .link-text {
+  opacity: 1;
+}
 .link-icon {
   display: flex;
 }

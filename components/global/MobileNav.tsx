@@ -12,7 +12,7 @@ export function MobileNav() {
       <div className={styles['mobile-nav']}>
         <NavLink href="/">
           <div className={styles['link-icon']}>
-            <ChefHat theme="outline" size="24" fill="#333"/>
+            <ChefHat theme="outline" size="24" fill="currentColor"/>
           </div>
           <div className={styles['link-text']}>Recipes</div>
         </NavLink>
