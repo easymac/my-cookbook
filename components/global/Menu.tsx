@@ -61,6 +61,7 @@ export const Menu = forwardRef(function Menu(
           animate={{ x: 0 }}
           exit={{ x: '100%' }}
           className={styles['menu-wrapper']}
+          transition={{ type: 'spring', damping: 30, stiffness: 300 }}
         >
           <div ref={ref} className={styles['menu']}>
             <Button

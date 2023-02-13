@@ -26,6 +26,7 @@ export function CookMode({ steps, ingredients, onClose, visible }) {
           animate={{ x: 0 }}
           exit={{ x: '100%' }}
           className={styles['cook-mode-panel-wrapper']}
+          transition={{ type: 'spring', damping: 30, stiffness: 300 }}
         >
           <div className={styles['cook-mode-panel']}>
             <Button
