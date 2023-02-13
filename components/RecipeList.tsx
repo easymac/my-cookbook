@@ -28,6 +28,12 @@ export function RecipeList(
     filteredRecipes = filteredRecipes.filter((meta) => favorites.includes(meta.slug))
   }
 
+  if (page === 'recent' && typeof window !== 'undefined') {
+    const recent = JSON.parse(localStorage.getItem('recentlyViewed')) || []
+    filteredRecipes = filteredRecipes.filter((meta) => recent.includes(meta.slug))
+    filteredRecipes.sort((a, b) => recent.indexOf(a.slug) - recent.indexOf(b.slug))
+  }
+
   let noFoundVariant;
   if (search || filters) noFoundVariant = 'search'
   if (page === 'favorites') noFoundVariant = 'favorites'

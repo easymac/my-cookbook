@@ -6,6 +6,7 @@ import { DescriptionExpander } from './DescriptionExpander'
 import { IngredientsList } from './IngredientsList'
 import { Instructions } from './Instructions'
 import { MetadataFields } from './MetadataFields'
+import { RecentlyViewedTracker } from './RecentlyViewedTracker'
 import styles from './Recipe.module.css'
 
 export const dynamic = 'error'
@@ -18,6 +19,7 @@ export default async function Page(
   const image = metadata.images.split(', ')[0]
   return (
     <main className={styles.main}>
+      <RecentlyViewedTracker slug={metadata.slug} />
       <header className={styles.header}>
         <div className={styles['title-wrapper']}>
           <h1 className={styles.title}>{metadata.title}</h1>
