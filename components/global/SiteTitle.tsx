@@ -1,7 +1,11 @@
+import Link from 'next/link'
 import CONFIG from '@/cookbook.config'
+import styles from './SiteTitle.module.css'
 
 export function SiteTitle() {
   return (
-    <h1>{CONFIG.siteTitle}</h1>
+    <h1 className={styles['site-title']}>
+      <Link href="/">{CONFIG.siteTitle}</Link>
+    </h1>
   )
 }
