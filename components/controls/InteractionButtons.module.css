@@ -10,6 +10,8 @@
   cursor: pointer;
 
   transition: transform 0.1s ease-in-out;
+
+  padding: 0 1rem;
 }
 
 .interaction-control > div:first-child {
@@ -48,6 +50,10 @@
   opacity: 0;
   font-size: 0.85rem;
   transition: opacity 0.1s ease-in-out;
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .interaction-control.active .text {
   opacity: 1;

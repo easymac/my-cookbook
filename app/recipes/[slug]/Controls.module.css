@@ -3,3 +3,10 @@
   justify-content: space-between;
   padding: 1rem 0 2rem;
 }
+
+.controls > *:first-child {
+  margin-left: -1rem;
+}
+.controls > *:last-child {
+  margin-right: -1rem;
+}
