@@ -38,4 +38,7 @@
   .header-right {
     flex: unset;
   }
+  .search-and-filter--recipe {
+    display: none;
+  }
 }

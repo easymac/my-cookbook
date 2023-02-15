@@ -27,19 +27,14 @@ export function SearchBar({ toggleFilterMenu }: { toggleFilterMenu: () => void})
   }
 
   const handleChange = (e: any) => {
-    console.log(pathname)
     setSearch(e.target.value)
     if (pathname === '/') {
       updateSearchParams(e.target.value)
     }
   }
 
-  let classes = [styles['search-bar']]
-  if (pathname.startsWith('/recipes/')) {
-    classes.push(styles['search-bar--recipe'])
-  }
   return (
-    <div className={classes.join(' ')}>
+    <div className={styles['search-bar']}>
       <div className={styles['search-icon']}>
         <FiSearch />
       </div>
