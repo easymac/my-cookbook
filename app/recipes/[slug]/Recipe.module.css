@@ -31,12 +31,15 @@
 @media (max-width: 768px) {
   .header {
     flex-direction: column-reverse;
+    margin-top: 0;
+    gap: 0;
   }
 
   .image-wrapper {
     width: 100%;
     margin: 0;
     border-radius: 4rem;
+    aspect-ratio: 1;
   }
 
   .title-wrapper {
@@ -62,6 +65,9 @@
 }
 
 @media (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
   .description-expander {
     position: relative;
     max-height:  300px;

@@ -34,8 +34,12 @@ export function SearchBar({ toggleFilterMenu }: { toggleFilterMenu: () => void})
     }
   }
 
+  let classes = [styles['search-bar']]
+  if (pathname.startsWith('/recipes/')) {
+    classes.push(styles['search-bar--recipe'])
+  }
   return (
-    <div className={styles['search-bar']}>
+    <div className={classes.join(' ')}>
       <div className={styles['search-icon']}>
         <FiSearch />
       </div>

@@ -13,10 +13,12 @@
   background: var(--secondary-background);
 }
 
-
 @media (max-width: 768px) {
   .search-bar {
     margin-top: 0;
+  }
+  .search-bar--recipe {
+    display: none;
   }
 }
 
