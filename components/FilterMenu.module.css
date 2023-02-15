@@ -1,7 +1,7 @@
 .filter-menu {
   background: var(--tertiary-background);
   border-radius: 1.75rem;
-  margin: 1rem -1rem 0 -1rem;
+  margin: 0rem -1rem 0 -1rem;
   /* visibility: hidden; */
   max-height: 0;
   overflow: hidden;
@@ -11,7 +11,8 @@
     visibility 0s linear 0.5s,
     max-height 0.5s ease-out,
     opacity 0.25s ease-in-out,
-    padding 0.25s ease-in-out;
+    padding 0.25s ease-in-out,
+    margin 0.25s ease-in-out;
 }
 
 .filter-menu-header {
@@ -30,11 +31,13 @@
   /* visibility: visible; */
   max-height: 300px;
   opacity: 1;
+  margin-top: 1rem;
   transition:
     visibility 0s linear,
     max-height 0.5s ease-in-out,
     opacity 0.25s ease-in-out,
-    padding 0.25s ease-in-out;
+    padding 0.25s ease-in-out,
+    margin 0.25s ease-in-out;
 }
 
 .filter-button-active {
