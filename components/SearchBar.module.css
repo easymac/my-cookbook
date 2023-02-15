@@ -1,7 +1,8 @@
 .search-bar {
   display: flex;
   padding: 0.5rem 0.9rem;
-  width: 100%;
+  width: calc(100% + 2rem);
+  box-sizing: border-box;
   
   flex: 1;
   margin-left: -1rem;
