@@ -35,7 +35,12 @@
   font-family: var(--primary-font-family);
   font-weight: bold;
   display: block;
+  width: 100%;
 
+  /*
+    Important: this 16px font size fix prevents iOS from zooming
+    in when the user focuses on the input field.
+  */
   font-size: 16px;
 }
 
