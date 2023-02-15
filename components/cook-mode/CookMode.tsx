@@ -52,7 +52,10 @@ export function CookMode({ steps, ingredients, onClose, visible }) {
                 Directions
               </Button>
             </div>
-            <div className={`${styles[`tab-active-${currentTab}`]} ${styles['tab-wrapper']}`}>
+            <div
+              className={`${styles[`tab-active-${currentTab}`]} ${styles['tab-wrapper']}`}
+              onPointerDownCapture={e => e.stopPropagation()}
+            >
               <IngredientsTab ingredients={ingredients} />
               <DirectionsTab steps={steps} />
             </div>
