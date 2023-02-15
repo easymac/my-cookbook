@@ -14,7 +14,7 @@
   border-top-right-radius: 3rem;
   margin-left: -1rem;
   margin-right: -1rem;
-  padding: 1rem calc(0rem + var(--gutter));
+  padding: 0.5rem calc(0rem + var(--gutter));
 }
 
 .mobile-nav a {
