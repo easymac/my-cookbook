@@ -15,6 +15,15 @@
   margin-left: -1rem;
   margin-right: -1rem;
   padding: 0.5rem calc(0rem + var(--gutter));
+
+  /*
+    Compensate for the chin on iOS devices
+    @TODO: Examine `display-mode standalone` in secure contexts.
+           This SHOULD be the solution(?) but seems to do
+           nothing at this time. Might need HTTPS.
+  */
+  padding-bottom: 1.25rem;
+
 }
 
 .mobile-nav a {
