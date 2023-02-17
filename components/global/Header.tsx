@@ -1,4 +1,4 @@
-import { SiteTitle } from '@/components/global/SiteTitle'
+import { SiteTitleOrBackButton } from '@/components/global/SiteTitleOrBackButton'
 import { getAllTags } from '@/lib/recipes'
 import { MenuWrapperComponent } from '@/components/global/Menu'
 import { SearchAndFilter } from '@/components/SearchAndFilter'
@@ -9,7 +9,7 @@ export function Header() {
   return (
     <header className={styles['header']}>
       <div className={styles['header-left']}>
-        <SiteTitle />
+        <SiteTitleOrBackButton />
       </div>
       <div className={styles['header-center']}>
         <SearchAndFilter allTags={allTags} />

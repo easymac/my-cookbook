@@ -23,6 +23,10 @@
   width: 100%;
 }
 
+.back-button {
+  margin: 1rem auto 1rem 0;
+}
+
 @media (max-width: 768px) {
   .header {
     flex-wrap: wrap;
