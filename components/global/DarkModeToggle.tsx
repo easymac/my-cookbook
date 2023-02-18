@@ -38,8 +38,14 @@ export function DarkModeToggle() {
   }
 
   useEffect(() => {
-    setDarkMode(localStorage.getItem('darkMode') as typeof options[number])
-    toggleDarkMode(localStorage.getItem('darkMode') as typeof options[number])
+    const currentDarkMode = localStorage.getItem('darkMode')
+    if (currentDarkMode) {
+      setDarkMode(localStorage.getItem('darkMode') as typeof options[number] || 'Auto')
+      toggleDarkMode(localStorage.getItem('darkMode') as typeof options[number])
+    } else {
+      setDarkMode('Auto')
+      toggleDarkMode('Auto')
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
