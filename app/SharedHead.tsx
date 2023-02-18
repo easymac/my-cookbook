@@ -17,6 +17,9 @@ export function SharedHead() {
       <link rel="apple-touch-icon" href={URLs.appleTouchIcon} sizes="180x180" />
       <link rel="shortcut icon" href={URLs.favicon} />
 
+      <link rel="manifest" href={URLs.manifest} />
+      <meta name="msapplication-config" content={URLs.msapplicationConfig} />
+
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="mobile-web-app-capable" content="yes" />
