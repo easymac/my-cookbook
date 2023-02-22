@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 import { getRecipeBySlug, getAllRecipesMetadata } from '@/lib/recipes'
 import { StartCookingButton } from './StartCookingButton'
 import { Controls } from './Controls'
@@ -14,7 +15,10 @@ export default async function Page(
   { params }: { params: { slug: string } },
 ) {
   const recipe = await getRecipeBySlug(params.slug)
-  if (!recipe) return null
+  if (!recipe) {
+    notFound()
+    return null
+  }
   const metadata = recipe.metadata
   const image = metadata.images.split(', ')[0]
   return (
