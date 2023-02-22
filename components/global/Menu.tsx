@@ -74,7 +74,7 @@ export const Menu = forwardRef(function Menu(
             <div className={styles['menu-list']}>
               <DarkModeToggle />
               <div className={styles['menu-item']}>
-                <Link href="/about">
+                <Link href="/about" onClick={onClose}>
                   <div className={styles['item-heading']}>About</div>
                 </Link>
               </div>
