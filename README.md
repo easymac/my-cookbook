@@ -35,3 +35,7 @@ The recipes in this repository are a mix: some are my own, some are family recip
 Some things that I'm considering implementing but aren't priorities for my own use or for 'launching'.
 
 - Localization options
+
+## TODO:
+
+- **iOS splash images**: I've generated these for the iPhone 12, 13, and 14 lineups, excluding the Mini devices. If the alignment seems incorrect for your device, or if your device isn't supported, please open an issue and I'll add support.
