@@ -39,3 +39,7 @@ Some things that I'm considering implementing but aren't priorities for my own u
 ## TODO:
 
 - **iOS splash images**: I've generated these for the iPhone 12, 13, and 14 lineups, excluding the Mini devices. If the alignment seems incorrect for your device, or if your device isn't supported, please open an issue and I'll add support.
+
+## Vercel deployment
+
+When deploying this app to Vercel, client-side navigation doesn't seem to work. It might be related to this issue https://github.com/vercel/next.js/issues/44728. Further investigation is required.
