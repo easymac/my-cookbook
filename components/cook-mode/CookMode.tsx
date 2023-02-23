@@ -6,11 +6,18 @@ import { HiArrowLongLeft } from 'react-icons/hi2'
 import { IngredientsTab } from '@/components/cook-mode/IngredientsTab'
 import { DirectionsTab } from '@/components/cook-mode/DirectionsTab'
 import styles from '@/components/cook-mode/CookMode.module.css'
+import { Step, Ingredient } from '@cooklang/cooklang-ts'
 
-export function CookMode({ steps, ingredients, onClose, visible }) {
+export function CookMode(
+  { steps, ingredients, onClose, visible }: {
+    steps: Step[],
+    ingredients: Ingredient[],
+    onClose: () => void,
+    visible: boolean,
+  }) {
   const [currentTab, setCurrentTab] = useState('ingredients')
 
-  const handleDragEnd = (e, info) => {
+  const handleDragEnd = (e: any, info: any) => {
     if (info.offset.x > 100 || info.velocity.x > 1000) onClose()
   }
 
@@ -19,7 +26,7 @@ export function CookMode({ steps, ingredients, onClose, visible }) {
       {visible && (
         <motion.div
           drag="x"
-          dragPropagataion
+          dragPropagation
           dragSnapToOrigin
           onDragEnd={handleDragEnd}
           initial={{ x: '100%' }}

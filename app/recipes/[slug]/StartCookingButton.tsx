@@ -2,9 +2,15 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/Button'
 import { CookMode } from '@/components/cook-mode/CookMode'
+import { Step, Ingredient } from '@cooklang/cooklang-ts'
 import styles from './Recipe.module.css'
 
-export function StartCookingButton({ recipe, steps, ingredients }) {
+export function StartCookingButton(
+  { steps, ingredients }: {
+    steps: Step[],
+    ingredients: Ingredient[],
+  }
+) {
   const [isCooking, setIsCooking] = useState(false)
   return (
     <>
@@ -18,7 +24,6 @@ export function StartCookingButton({ recipe, steps, ingredients }) {
       </Button>
       
       <CookMode
-        recipe={recipe}
         onClose={() => setIsCooking(false)}
         visible={isCooking}
         ingredients={ingredients}

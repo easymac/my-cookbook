@@ -10,16 +10,18 @@ import { MetadataFields } from './MetadataFields'
 import { RecentlyViewedTracker } from './RecentlyViewedTracker'
 import styles from './Recipe.module.css'
 
+import { Recipe, Metadata } from '@cooklang/cooklang-ts'
+
 export const dynamic = 'error'
 export default async function Page(
   { params }: { params: { slug: string } },
 ) {
-  const recipe = await getRecipeBySlug(params.slug)
+  const recipe: Recipe = await getRecipeBySlug(params.slug)
   if (!recipe) {
     notFound()
     return null
   }
-  const metadata = recipe.metadata
+  const metadata: Metadata = recipe.metadata
   const image = metadata.images.split(', ')[0]
   return (
     <main className={styles.main}>
@@ -56,7 +58,6 @@ export default async function Page(
       <StartCookingButton
         steps={recipe.steps}
         ingredients={recipe.ingredients}
-        className={'start-cooking'}
       />
       <div className={styles['grid-wrapper']}>
         <section className={styles['ingredients']}>

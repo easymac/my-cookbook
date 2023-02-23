@@ -3,7 +3,7 @@ import { LinkIfLink } from '@/components/ui/LinkIfLink'
 import styles from './Recipe.module.css'
 
 export function MetadataFields(
-  { metadata }: Metadata
+  { metadata }: { metadata: Metadata } 
 ) {
 
   // The fields we want to display, in order:
@@ -12,9 +12,9 @@ export function MetadataFields(
     'source',
     'time',
   ]
-    .filter((field) => metadata.hasOwnProperty(field))
-    .map((field) => (
-      <MetadataField key={field} label={field} value={metadata[field]} />
+    .filter((field: string) => metadata.hasOwnProperty(field))
+    .map((field: string) => (
+      <MetadataField key={field} label={field} value={(metadata as unknown as Metadata)[field]} />
     ))
 
   return (

@@ -24,17 +24,17 @@ export function RecipeList(
   )
 
   if (page === 'favorites' && typeof window !== 'undefined') {
-    const favorites = JSON.parse(localStorage.getItem('favoritedRecipes')) || []
+    const favorites = JSON.parse(localStorage.getItem('favoritedRecipes') || '[]') || []
     filteredRecipes = filteredRecipes.filter((meta) => favorites.includes(meta.slug))
   }
 
   if (page === 'recent' && typeof window !== 'undefined') {
-    const recent = JSON.parse(localStorage.getItem('recentlyViewed')) || []
+    const recent = JSON.parse(localStorage.getItem('recentlyViewed') || '[]') || []
     filteredRecipes = filteredRecipes.filter((meta) => recent.includes(meta.slug))
     filteredRecipes.sort((a, b) => recent.indexOf(a.slug) - recent.indexOf(b.slug))
   }
 
-  let noFoundVariant;
+  let noFoundVariant = 'standard';
   if (search || filters) noFoundVariant = 'search'
   if (page === 'favorites') noFoundVariant = 'favorites'
   if (page === 'recent') noFoundVariant = 'recent'

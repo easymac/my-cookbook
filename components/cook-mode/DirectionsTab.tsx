@@ -1,12 +1,13 @@
 'use client'
 import { useState } from 'react'
 import styles from '@/components/cook-mode/CookMode.module.css'
+import { Step } from '@cooklang/cooklang-ts'
 
-export function DirectionsTab({ steps }) {
+export function DirectionsTab({ steps }: { steps: Step[] }) {
   const [currentStep, setCurrentStep] = useState(0)
 
-  const formatStep = (step) => {
-    const fragments = step.map((part) => {
+  const formatStep = (step: Step) => {
+    const fragments = step.map((part: any) => {
       if (part.type === 'text') return part.value
       if (part.type === 'ingredient') return part.name
       if (part.type === 'timer') return `${part.quantity} ${part.units}`
@@ -14,11 +15,11 @@ export function DirectionsTab({ steps }) {
     return fragments.join('')
   }
 
-  const handleClick = (index) => setCurrentStep(index)
+  const handleClick = (index: number) => setCurrentStep(index)
 
   return (
     <div className={styles['directions-tab']}>
-      {steps.map((step, index) => (
+      {steps.map((step: Step, index) => (
         <div
           key={index}
           className={[

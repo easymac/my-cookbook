@@ -7,13 +7,15 @@ const recipesDirectory = path.join(process.cwd(), 'public/recipes')
 const recipeMap = buildRecipeMap()
 
 export function getAllTags(): string[] {
-  const tags = new Set()
+  const tags = new Set<string>()
   for (const recipe of recipeMap.values()) {
     if (recipe.metadata.tags) {
       recipe.metadata.tags
         .split(',')
-        .filter(tag => tag !== ' ')
-        .forEach((tag) => tags.add(tag.trim()))
+        .filter((tag: string): boolean => tag !== ' ')
+        .forEach((tag: string): void => {
+          tags.add(tag.trim())
+        })
     }
   }
   return Array.from(tags)

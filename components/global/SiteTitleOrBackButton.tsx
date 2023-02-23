@@ -23,7 +23,8 @@ export function SiteTitleOrBackButton() {
   let showLogo = true;
 
   if (
-    pathname.startsWith('/recipes/')
+    pathname
+    && pathname.startsWith('/recipes/')
     && priorPathname
     && !priorPathname.startsWith('/recipes/')
   ) {

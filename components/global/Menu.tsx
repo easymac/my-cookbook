@@ -54,7 +54,7 @@ export const Menu = forwardRef(function Menu(
           drag="x"
           onDragStart={handleDragStart}
           dragDirectionLock
-          dragPropagataion
+          dragPropagation
           dragSnapToOrigin
           onDragEnd={handleDragEnd}
           initial={{ x: '100%' }}

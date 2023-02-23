@@ -12,7 +12,7 @@ export function SearchAndFilter({ allTags }: { allTags: string }) {
   const [showFilterMenu, setShowFilterMenu] = useState(Boolean(hasFilters))
   const toggleFilterMenu = () => setShowFilterMenu(!showFilterMenu)
   let classes = [styles['search-and-filter']]
-  if (pathname.startsWith('/recipes/')) {
+  if (pathname && pathname.startsWith('/recipes/')) {
     classes.push(styles['search-and-filter--recipe'])
   }
   return (
