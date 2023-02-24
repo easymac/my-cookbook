@@ -9,7 +9,7 @@ export function LinkIfLink(
   { children }: Props
 ) {
   // If the child is not a string, it's not a link:
-  if (typeof children !== 'string') return <>children</>
+  if (typeof children !== 'string') return <>{children}</>
 
   // If the child is a string, it might be a link:
   const href = children
@@ -19,7 +19,7 @@ export function LinkIfLink(
     new URL(href)
   }
   catch {
-    return <>children</>
+    return <>{children}</>
   }
 
   // If the child is a valid URL, it's a link:
