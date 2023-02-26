@@ -6,8 +6,12 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 export function FavoritedButton(
   { slug }: { slug: string }
 ) {
-  const favoritedRecipes = JSON.parse(localStorage.getItem('favoritedRecipes') || '[]')
+  let favoritedRecipes = []
+  if (typeof localStorage !== 'undefined') {
+    favoritedRecipes = JSON.parse(localStorage.getItem('favoritedRecipes') || '[]')
+  }
   const [isFavorited, setIsFavorited] = useState(favoritedRecipes?.includes(slug))
+
   let classes = [
     styles['favorited-button'],
     styles['interaction-control']

@@ -7,7 +7,11 @@ import { BsCheckSquareFill } from 'react-icons/bs'
 export function CookedButton(
   { slug }: { slug: string }
 ) {
-  const cookedRecipes = JSON.parse(localStorage.getItem('cookedRecipes') || '{}')
+  let cookedRecipes = {}
+  if (typeof localStorage !== 'undefined') {
+    cookedRecipes = JSON.parse(localStorage.getItem('cookedRecipes') || '{}')
+  }
+
   const [hasCooked, setHasCooked] = useState(cookedRecipes && cookedRecipes[slug])
 
   const handleClick = () => {

@@ -1,8 +1,17 @@
+import { Suspense } from 'react'
 import { SiteTitleOrBackButton } from '@/components/global/SiteTitleOrBackButton'
 import { getAllTags } from '@/lib/recipes'
 import { MenuWrapperComponent } from '@/components/global/Menu'
 import { SearchAndFilter } from '@/components/SearchAndFilter'
 import styles from '@/components/global/Header.module.css'
+
+function SearchBarFallback() {
+  return (
+    <div className={styles['search-bar-fallback']}>
+      Search bar fallback
+    </div>
+  )
+}
 
 export function Header() {
   const allTags = getAllTags().join(',')
@@ -12,7 +21,9 @@ export function Header() {
         <SiteTitleOrBackButton />
       </div>
       <div className={styles['header-center']}>
-        <SearchAndFilter allTags={allTags} />
+        <Suspense fallback={<SearchBarFallback />}>
+          <SearchAndFilter allTags={allTags} />
+        </Suspense>
       </div>
       <div className={styles['header-right']}>
         <MenuWrapperComponent />
