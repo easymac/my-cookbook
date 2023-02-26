@@ -26,6 +26,7 @@ export default async function Head(
       ) : (
         <meta property="og:image" content={`${CONFIG.siteURL}/favicons/og-image.png`} />
       )}
+      <meta name="twitter:card" content="summary_large_image" />
 
       <SharedHead />
     </>
