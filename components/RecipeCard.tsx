@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Metadata } from '@cooklang/cooklang-ts'
+import { GiKnifeFork } from 'react-icons/gi'
 import styles from '@/components/RecipeCard.module.css'
 
 export function RecipeCard(
@@ -10,7 +11,7 @@ export function RecipeCard(
   return (
     <div className={styles['recipe-card']}>
       <Link href="/recipes/[slug]" as={`/recipes/${metadata.slug}`}>
-        {image !== '' &&
+        {image !== '' ? (
           <div className={styles['image-wrapper']}>
             <Image
               src={image}
@@ -20,7 +21,11 @@ export function RecipeCard(
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
-        }
+        ) : (
+          <div className={styles['image-placeholder']}>
+            <GiKnifeFork />
+          </div>
+        )}
         <h3 className={styles['title']}>{metadata.title}</h3>
         <div className={styles['time']}>{metadata.time}</div>
       </Link>
