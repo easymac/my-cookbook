@@ -7,7 +7,7 @@ import { BsCheckSquareFill } from 'react-icons/bs'
 export function CookedButton(
   { slug }: { slug: string }
 ) {
-  let cookedRecipes = {}
+  let cookedRecipes
   if (typeof localStorage !== 'undefined') {
     cookedRecipes = JSON.parse(localStorage.getItem('cookedRecipes') || '{}')
   }
