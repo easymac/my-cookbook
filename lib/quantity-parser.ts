@@ -92,8 +92,8 @@ export function parseVulgar(quantity: string | number): string {
           if (vulgar) {
             return vulgar
           }
-          return part
         }
+        return part
       })
       .join(' ')
   }
