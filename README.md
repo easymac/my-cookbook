@@ -2,7 +2,7 @@
 
 A collection of my recipes and a beautiful Next.js app to use them in the kitchen.
 
-[See it in action!](https://cookbook.joshuawootonn.com/)
+[See it in action!](https://cookbook.ezm.ac/)
 
 ![mockup](./mockup.png)
 
