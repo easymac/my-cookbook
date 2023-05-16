@@ -38,6 +38,7 @@ export default async function Page(
               fill={true}
               quality={100}
               sizes="(max-width: 768px) 100vw, 50vw"
+              priority={true}
             />
           </div>
         }
