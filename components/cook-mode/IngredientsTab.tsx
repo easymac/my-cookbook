@@ -39,7 +39,7 @@ export function IngredientsTab({ ingredients }: { ingredients: Ingredient[] }) {
             }
           </div>
           <div className={styles['ingredient-text']}>
-            {parseVulgar(ingredient.quantity)} {ingredient.name}
+            {parseVulgar(ingredient.quantity)} {ingredient.units} {ingredient.name}
           </div>
         </div>
       ))}
