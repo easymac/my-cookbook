@@ -1,4 +1,5 @@
 .site-title a {
+  font-family: var(--bluu-next);
   text-decoration: none;
   color: var(--primary-text);
 }

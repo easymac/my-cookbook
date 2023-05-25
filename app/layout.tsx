@@ -1,4 +1,4 @@
-import { publicSans } from '@/app/fonts'
+import { publicSans, bluuNext } from '@/app/fonts'
 import { Header } from '@/components/global/Header'
 import { Container } from '@/components/ui/Container'
 import { MobileNav } from '@/components/global/MobileNav'
@@ -11,8 +11,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const fontClassNames = [publicSans.variable, bluuNext.variable].join(' ')
   return (
-    <html lang="en" className={publicSans.variable}>
+    <html lang="en" className={fontClassNames}>
       <head />
       <body>
         <Container>
