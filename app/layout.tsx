@@ -6,11 +6,7 @@ import { MobileNav } from '@/components/global/MobileNav'
 import './globals.css'
 import '@icon-park/react/styles/index.css'
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout(props) {
   const fontClassNames = [publicSans.variable, bluuNext.variable].join(' ')
   return (
     <html lang="en" className={fontClassNames}>
@@ -19,7 +15,10 @@ export default function RootLayout({
         <Container>
           <Header />
           <div className="content">
-            {children}
+            {props.children}
+            {props.mobilePanel ? (
+              <div className="mobile-panel">{props.mobilePanel}</div>
+            ) : null}
           </div>
         </Container>
         <MobileNav />
