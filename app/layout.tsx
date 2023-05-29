@@ -2,6 +2,7 @@ import { publicSans, bluuNext } from '@/app/fonts'
 import { Header } from '@/components/global/Header'
 import { Container } from '@/components/ui/Container'
 import { MobileNav } from '@/components/global/MobileNav'
+import styles from './Layout.module.css'
 
 import './globals.css'
 import '@icon-park/react/styles/index.css'
@@ -12,15 +13,16 @@ export default function RootLayout(props) {
     <html lang="en" className={fontClassNames}>
       <head />
       <body>
-        <Container>
-          <Header />
-          <div className="content">
-            {props.children}
-            {props.mobilePanel ? (
-              <div className="mobile-panel">{props.mobilePanel}</div>
-            ) : null}
+        <Header />
+        <div className={styles['content']}>
+          <div className={styles['content-wrapper']}>
+            {/* Move search bar here ? */}
+            <Container>
+              {props.children}
+            </Container>
           </div>
-        </Container>
+          {props.mobilePanel}
+        </div>
         <MobileNav />
       </body>
     </html>

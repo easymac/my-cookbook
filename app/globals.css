@@ -80,6 +80,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-y: hidden;
 }
 
 body {
@@ -88,8 +89,4 @@ body {
   overflow-x: hidden;
   font-family: var(--primary-font-family);
   position: relative;
-}
-
-.content {
-  padding-bottom: 16rem;
 }
