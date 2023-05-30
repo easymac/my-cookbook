@@ -4,6 +4,9 @@ import { Container } from '@/components/ui/Container'
 import { MobileNav } from '@/components/global/MobileNav'
 import styles from './Layout.module.css'
 
+import { MobilePanelContextProvider } from './MobilePanelContext'
+import { MobilePanel } from '@/components/global/MobilePanel'
+
 import './globals.css'
 import '@icon-park/react/styles/index.css'
 
@@ -13,16 +16,20 @@ export default function RootLayout(props) {
     <html lang="en" className={fontClassNames}>
       <head />
       <body>
-        <Header />
-        <div className={styles['content']}>
-          <div className={styles['content-wrapper']}>
-            {/* Move search bar here ? */}
-            <Container>
-              {props.children}
-            </Container>
+        <MobilePanelContextProvider>
+          <Header />
+          <div className={styles['content']}>
+            <div className={styles['content-wrapper']}>
+              {/* Move search bar here ? */}
+              <Container>
+                {props.children}
+              </Container>
+            </div>
+            <MobilePanel item={props.mobilePanel}>
+              {props.mobilePanel}
+            </MobilePanel>
           </div>
-          {props.mobilePanel}
-        </div>
+        </MobilePanelContextProvider>
         <MobileNav />
       </body>
     </html>

@@ -1,13 +1,16 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { useSelectedLayoutSegment } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useMobilePanelContext } from '@/app/MobilePanelContext'
 
 export function MobilePanel({
   children
 }: {
   children: React.ReactNode
 }) {
-  const [isOpen, setIsOpen] = useState(true)
+  const { isOpen, setIsOpen } = useMobilePanelContext()
 
   const handleDragEnd = (e: any, info: any) => {
     if (info.offset.x > 100 || info.velocity.x > 1000) setIsOpen(false)
@@ -18,6 +21,11 @@ export function MobilePanel({
       window.history.back()
     }
   }
+
+  const segments = useSelectedLayoutSegment('mobilePanel')
+  useEffect(() => {
+    if (segments === '(.)recipes') setIsOpen(true)
+  }, [segments, setIsOpen])
 
   return (
     <AnimatePresence>
@@ -40,5 +48,5 @@ export function MobilePanel({
         </motion.div>
       )}
     </AnimatePresence>
-)
+  )
 }
