@@ -27,6 +27,47 @@
   margin: 1rem auto 1rem 0;
 }
 
+.site-title-or-back-button {
+  position: relative;
+}
+
+.site-title {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.mobile-panel-open .site-title {
+  opacity: 0;
+  transform: translateX(-1rem);
+  pointer-events: none;
+}
+
+.back-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  opacity: 0;
+  transform: translateX(1rem) !important;
+  transition: opacity 0.2s, transform 0.2s !important;
+  pointer-events: none;
+}
+
+.mobile-panel-open .back-button {
+  opacity: 1;
+  transform: translateX(0) !important;
+  pointer-events: all;
+}
+
+
+.site-title a {
+  font-family: var(--bluu-next);
+  text-decoration: none;
+  color: var(--primary-text);
+}
+
 @media (max-width: 768px) {
   .header {
     flex-wrap: wrap;

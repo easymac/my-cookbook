@@ -28,5 +28,17 @@ export function SiteTitleOrBackButton() {
     </Button>
   )
 
-  return !isOpen ? <SiteTitle /> : <>{backButton}</>
+  const classes = [
+    styles['site-title-or-back-button'],
+  ]
+  if (isOpen) classes.push(styles['mobile-panel-open'])
+
+  return (
+    <div
+      className={classes.join(' ')}
+    >
+      <SiteTitle />
+      {backButton}
+    </div>
+  )
 }
