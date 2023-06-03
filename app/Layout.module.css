@@ -1,7 +1,7 @@
 .content {
   height: stretch;
   margin-top: 1rem;
-  padding-bottom: 16rem;
+  /* padding-bottom: 16rem; */
   position: relative;
   overflow: hidden;
 }
@@ -14,6 +14,7 @@
   bottom: 0;
   right: 0;
   overflow-y: scroll;
+  padding-bottom: 16rem;
 }
 
 .mobile-wrapper {
@@ -24,4 +25,21 @@
   right: 0;
   background: #ccc;
   overflow-y: scroll;
+}
+
+.mobile-panel-motion-div {
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: stretch;
+}
+
+.mobile-panel {
+  position: relative;
+  z-index: 999;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: stretch;
+  background: black;
+  overflow-y: scroll;
+  padding-bottom: 16rem;
 }

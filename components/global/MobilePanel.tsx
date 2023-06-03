@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSelectedLayoutSegment } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useMediaQuery } from 'react-responsive'
 import { useMobilePanelContext } from '@/app/MobilePanelContext'
+import styles from '@/app/Layout.module.css'
 
 export function MobilePanel({
   children
@@ -11,6 +13,7 @@ export function MobilePanel({
   children: React.ReactNode
 }) {
   const { isOpen, setIsOpen } = useMobilePanelContext()
+  const isMobile = useMediaQuery({ maxWidth: 768 })
 
   const handleDragEnd = (e: any, info: any) => {
     if (info.offset.x > 100 || info.velocity.x > 1000) setIsOpen(false)
@@ -27,10 +30,11 @@ export function MobilePanel({
     if (segments === '(.)recipes') setIsOpen(true)
   }, [segments, setIsOpen])
 
-  return (
+  if (isMobile) return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          className={styles['mobile-panel-motion-div']}
           key="mobile-panel"
           drag="x"
           onDragStart={() => {}}
@@ -48,5 +52,11 @@ export function MobilePanel({
         </motion.div>
       )}
     </AnimatePresence>
+  )
+
+  return (
+    <>
+      {isOpen && children}
+    </>
   )
 }
