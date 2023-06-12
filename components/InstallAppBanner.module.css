@@ -1,0 +1,28 @@
+.banner {
+  background: var(--action-blue);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+}
+
+.banner-link {
+  text-decoration: inherit;
+}
+
+.banner-text span {
+  text-decoration: underline;
+}
+
+.banner-button {
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+
+.banner-button path {
+  stroke: currentColor;
+}
