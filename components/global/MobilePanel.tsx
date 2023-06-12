@@ -28,6 +28,7 @@ export function MobilePanel({
   const segments = useSelectedLayoutSegment('mobilePanel')
   useEffect(() => {
     if (segments === '(.)recipes') setIsOpen(true)
+    if (segments === '(.)install') setIsOpen(true)
   }, [segments, setIsOpen])
 
   if (isMobile) return (
