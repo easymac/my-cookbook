@@ -1,33 +1,18 @@
 .content {
-  height: stretch;
   margin-top: 1rem;
-  /* padding-bottom: 16rem; */
-  position: relative;
-  overflow: hidden;
 }
-
 
 .content-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow-y: scroll;
-  padding-bottom: 16rem;
-}
-
-.mobile-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: #ccc;
-  overflow-y: scroll;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .mobile-panel-motion-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
   height: -webkit-fill-available;
   height: -moz-available;
   height: stretch;
@@ -42,4 +27,15 @@
   background: black;
   overflow-y: scroll;
   padding-bottom: 16rem;
+  padding-top: 82px;
+}
+
+@media (min-width: 769px) {
+  .search-wrapper {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 33vw;
+  }
 }

@@ -17,20 +17,22 @@ function SearchBarFallback() {
 export function Header() {
   const allTags = getAllTags().join(',')
   return (
-    <Container>
-      <header className={styles['header']}>
-        <div className={styles['header-left']}>
-          <SiteTitleOrBackButton />
-        </div>
-        <div className={styles['header-center']}>
-          <Suspense fallback={<SearchBarFallback />}>
-            <SearchAndFilter allTags={allTags} />
-          </Suspense>
-        </div>
-        <div className={styles['header-right']}>
-          <MenuWrapperComponent />
-        </div>
-      </header>
-    </Container>
+    <div className={styles['header-wrapper']}>
+      <Container>
+        <header className={styles['header']}>
+          <div className={styles['header-left']}>
+            <SiteTitleOrBackButton />
+          </div>
+          {/* <div className={styles['header-center']}>
+            <Suspense fallback={<SearchBarFallback />}>
+              <SearchAndFilter allTags={allTags} />
+            </Suspense>
+          </div> */}
+          <div className={styles['header-right']}>
+            <MenuWrapperComponent />
+          </div>
+        </header>
+      </Container>
+    </div>
   )
 }
