@@ -86,13 +86,18 @@ html, body {
 }
 
 body {
-  padding-top: 82px;
-}
-
-body {
   background-color: var(--primary-background);
   color: var(--primary-text);
   overflow-x: hidden;
   font-family: var(--primary-font-family);
   position: relative;
+
+  padding-top: 82px;
+}
+
+@media (min-width: 769px) {
+  body {
+    /* padding-top: 0; */
+    box-sizing: border-box;
+  }
 }

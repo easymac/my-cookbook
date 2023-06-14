@@ -4,9 +4,6 @@
   overflow-x: hidden;
 }
 
-.content-wrapper {
-}
-
 .mobile-panel-motion-div {
   position: absolute;
   top: 0;
@@ -32,10 +29,19 @@
 
 @media (min-width: 769px) {
   .search-wrapper {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     max-width: 33vw;
+    z-index: 99999;
+  }
+
+  .mobile-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 }
