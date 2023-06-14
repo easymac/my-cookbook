@@ -27,15 +27,15 @@ export default function RootLayout(props) {
             </div>
           </Container>
           <div className={styles['content']}>
+            <MobilePanel item={props.mobilePanel}>
+              {props.mobilePanel}
+            </MobilePanel>
             <div className={styles['content-wrapper']}>
               {/* Move search bar here ? */}
               <Container>
                 {props.children}
               </Container>
             </div>
-            <MobilePanel item={props.mobilePanel}>
-              {props.mobilePanel}
-            </MobilePanel>
           </div>
         </MobilePanelContextProvider>
         <MobileNav />
