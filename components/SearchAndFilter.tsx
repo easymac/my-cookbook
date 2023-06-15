@@ -8,7 +8,7 @@ import styles from '@/components/global/Header.module.css'
 export function SearchAndFilter({ allTags }: { allTags: string }) {
   const searchParams = useSearchParams()
   const pathname = usePathname()
-  const hasFilters = searchParams.get('filters')
+  const hasFilters = searchParams && searchParams.get('filters')
   const [showFilterMenu, setShowFilterMenu] = useState(Boolean(hasFilters))
   const toggleFilterMenu = () => setShowFilterMenu(!showFilterMenu)
   return (

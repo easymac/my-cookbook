@@ -19,7 +19,7 @@ export function MobilePanel({
     if (info.offset.x > 100 || info.velocity.x > 1000) setIsOpen(false)
   }
 
-  const handleAnimationComplete = ({ x }) => {
+  const handleAnimationComplete = ({ x }: { x: any }) => {
     if (x === '100%') {
       window.history.back()
     }

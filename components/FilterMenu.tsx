@@ -9,18 +9,19 @@ export function FilterMenu(
 ) {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const filters = searchParams.get('filters')
+  const rawSearchParams = searchParams
+    ? new URLSearchParams(searchParams.toString())
+    : new URLSearchParams()
+  const filters = searchParams && searchParams.get('filters')
 
 
   const handleClear = () => {
-    const rawSearchParams = new URLSearchParams(searchParams.toString())
     rawSearchParams.delete('filters')
     router.replace(`/?${rawSearchParams.toString()}`)
   }
   
   const handleFilter = (tag: string) => {
     const filtersArray = filters ? filters.split(',') : []
-    const rawSearchParams = new URLSearchParams(searchParams.toString())
     if (filtersArray.includes(tag)) {
       rawSearchParams.set('filters', filtersArray.filter((filter) => filter !== tag).join(','))
     } else {

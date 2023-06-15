@@ -12,8 +12,8 @@ export function RecipeList(
   }
 ) {
   const searchParams = useSearchParams()
-  const search = searchParams.get('search')
-  const filters = searchParams.get('filters')
+  const search = searchParams && searchParams.get('search')
+  const filters = searchParams && searchParams.get('filters')
 
   let filteredRecipes = recipeMetas
   if (search) filteredRecipes = filteredRecipes.filter(

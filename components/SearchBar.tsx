@@ -12,10 +12,12 @@ export function SearchBar({ toggleFilterMenu }: { toggleFilterMenu: () => void})
   const [search, setSearch] = useState('')
   const router = useRouter()
   const searchParams = useSearchParams()
+  const rawSearchParams = searchParams
+    ? new URLSearchParams(searchParams.toString())
+    : new URLSearchParams()
   const pathname = usePathname()
 
   const updateSearchParams = (value: string) => {
-    const rawSearchParams = new URLSearchParams(searchParams.toString())
     rawSearchParams.set('search', value)
     router.replace(`/?${rawSearchParams.toString()}`)
   }

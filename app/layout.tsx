@@ -12,7 +12,7 @@ import { MobilePanel } from '@/components/global/MobilePanel'
 import './globals.css'
 import '@icon-park/react/styles/index.css'
 
-export default function RootLayout(props) {
+export default function RootLayout(props: any) {
   const fontClassNames = [publicSans.variable, bluuNext.variable].join(' ')
   const allTags = getAllTags().join(',')
   return (
@@ -27,7 +27,7 @@ export default function RootLayout(props) {
             </div>
           </Container>
           <div className={styles['content']}>
-            <MobilePanel item={props.mobilePanel}>
+            <MobilePanel>
               {props.mobilePanel}
             </MobilePanel>
             <div className={styles['content-wrapper']}>
