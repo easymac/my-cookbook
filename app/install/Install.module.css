@@ -1,0 +1,41 @@
+.header {
+  color: white;
+  background: var(--action-blue);
+  border-radius: 0.5rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  margin: 2rem 0;
+}
+
+.step-image {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  margin: auto;
+  display: block;
+}
+
+.step {
+  margin-top: 2rem;
+}
+
+.step .step-image {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.start-here {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.start-here svg {
+  font-size: 2rem;
+}
