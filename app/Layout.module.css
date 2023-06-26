@@ -9,11 +9,25 @@
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   z-index: 1;
 
   height: -webkit-fill-available;
   height: -moz-available;
   height: stretch;
+}
+
+.content-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: stretch;
+  overflow-y: scroll;
+  padding-top: 10rem;
+  background: var(--primary-background)
 }
 
 .mobile-panel {
@@ -26,6 +40,11 @@
   overflow-y: scroll;
   padding-bottom: 16rem;
   padding-top: 82px;
+}
+
+.search-wrapper {
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 769px) {
