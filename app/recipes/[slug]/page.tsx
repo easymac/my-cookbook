@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import CONFIG from '@/cookbook.config'
 import { getRecipeBySlug, getAllRecipesMetadata } from '@/lib/recipes'
 import { StartCookingButton } from './StartCookingButton'
 import { Controls } from './Controls'
@@ -80,4 +81,27 @@ export async function generateStaticParams() {
   return recipeMetas.map((meta) => ({
     slug: meta.slug,
   }))
+}
+
+export async function generateMetadata(
+  { params }: { params: { slug: string } }
+) {
+  const recipe = await getRecipeBySlug(params.slug)
+  if (!recipe) return {}
+  const metadata = recipe.metadata
+  const image = metadata.images.split(', ')[0]
+
+  return {
+    title: metadata.title,
+    description: metadata.description,
+    openGraph: {
+      title: `${metadata.title} - ${CONFIG.siteTitle}`,
+      description: metadata.description,
+      url: `${CONFIG.siteURL}/recipes/${metadata.slug}`,
+      images: [
+        { url: image !== '' ? image : `${CONFIG.siteURL}/favicons/og-image.png` },
+      ],
+    }
+  }
+
 }
