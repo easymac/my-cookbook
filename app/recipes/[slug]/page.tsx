@@ -13,7 +13,6 @@ import styles from './Recipe.module.css'
 
 import { Recipe, Metadata } from '@cooklang/cooklang-ts'
 
-export const runtime = 'edge'
 export const dynamic = 'error'
 export default async function Page(
   { params }: { params: { slug: string } },
@@ -34,13 +33,9 @@ export default async function Page(
         </div>
         {image !== '' &&
           <div className={styles['image-wrapper']}>
-            <Image
+            <img
               src={image}
               alt={metadata.title}
-              fill={true}
-              quality={100}
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority={true}
             />
           </div>
         }

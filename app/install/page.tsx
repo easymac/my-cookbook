@@ -10,39 +10,31 @@ export default function Page() {
     <main className={styles['main']}>
       <header className={styles['header']}>
         <h1>How to install this app on your iPhone</h1>
-        <Image
+        <img
           className={styles['step-image']}
-          src={iphonePic}
+          src={iphonePic.src}
           alt="iPhone"
-          sizes="(max-width: 768px) 100vw, 50vw"
-          priority={true}
         />
       </header>
       <div className={styles['steps']}>
         <div className={styles['step']}>
           <h2>Tap the <RxShare2 /> icon</h2>
-          <Image
+          <img
             className={styles['step-image']}
             src="/images/iphone-share.png"
             alt="Share icon"
             width={300}
             height={300}
-            quality={100}
-            sizes="(max-width: 768px) 100vw, 50vw"
-            priority={true}
           />
         </div>
         <div className={styles['step']}>
           <h2>Add to Home Screen</h2>
-          <Image
+          <img
             className={styles['step-image']}
             src="/images/iphone-add-to-home-screen.png"
             alt="Add to Home Screen"
             width={300}
             height={300}
-            quality={100}
-            sizes="(max-width: 768px) 100vw, 50vw"
-            priority={true}
           />
         </div>
       </div>

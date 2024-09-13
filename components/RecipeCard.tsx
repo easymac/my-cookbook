@@ -13,12 +13,9 @@ export function RecipeCard(
       <Link href="/recipes/[slug]" as={`/recipes/${metadata.slug}`}>
         {image !== '' ? (
           <div className={styles['image-wrapper']}>
-            <Image
+            <img
               src={image}
               alt={metadata.title}
-              fill={true}
-              quality={100}
-              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         ) : (
