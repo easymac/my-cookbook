@@ -13,6 +13,7 @@ import styles from './Recipe.module.css'
 
 import { Recipe, Metadata } from '@cooklang/cooklang-ts'
 
+export const runtime = 'edge'
 export const dynamic = 'error'
 export default async function Page(
   { params }: { params: { slug: string } },
