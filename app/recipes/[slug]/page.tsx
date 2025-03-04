@@ -17,7 +17,8 @@ export const dynamic = 'error'
 export default async function Page(
   { params }: { params: { slug: string } },
 ) {
-  const recipe: Recipe = await getRecipeBySlug(params.slug)
+  const { slug } = await params;
+  const recipe: Recipe = getRecipeBySlug(slug)
   if (!recipe) {
     notFound()
     return null
@@ -73,7 +74,7 @@ export default async function Page(
 }
 
 export async function generateStaticParams() {
-  const recipeMetas = await getAllRecipesMetadata()
+  const recipeMetas = getAllRecipesMetadata()
   return recipeMetas.map((meta) => ({
     slug: meta.slug,
   }))
@@ -82,7 +83,8 @@ export async function generateStaticParams() {
 export async function generateMetadata(
   { params }: { params: { slug: string } }
 ) {
-  const recipe = await getRecipeBySlug(params.slug)
+  const { slug } = await params;
+  const recipe = getRecipeBySlug(slug)
   if (!recipe) return {}
   const metadata = recipe.metadata
   const image = metadata.images.split(', ')[0]

@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSelectedLayoutSegment } from 'next/navigation'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import { useMediaQuery } from 'react-responsive'
 import { useMobilePanelContext } from '@/app/MobilePanelContext'
 import styles from '@/app/Layout.module.css'

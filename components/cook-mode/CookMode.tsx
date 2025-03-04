@@ -1,5 +1,5 @@
 'use client'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 import { useState } from 'react'
 import { Button } from '@/components/ui/Button'
 import { HiArrowLongLeft } from 'react-icons/hi2'

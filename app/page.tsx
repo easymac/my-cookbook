@@ -34,6 +34,7 @@ export const metadata: PageMetadata = {
     template: `%s - ${CONFIG.siteTitle}`,
     default: CONFIG.siteTitle,
   },
+  metadataBase: new URL(CONFIG.siteURL),
   openGraph: {
     title: CONFIG.siteTitle,
     description: CONFIG.siteDescription,
