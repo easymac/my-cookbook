@@ -42,6 +42,7 @@
   --primary-font-family: var(--public-sans);
 
   --gutter: 3rem;
+  --mobile-gutter: 1.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -91,8 +92,6 @@ body {
   overflow-x: hidden;
   font-family: var(--primary-font-family);
   position: relative;
-
-  padding-top: 82px;
 }
 
 @media (min-width: 769px) {

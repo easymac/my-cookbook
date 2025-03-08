@@ -5,18 +5,19 @@ import CONFIG from '@/cookbook.config'
 import { getAllRecipesMetadata } from '@/lib/recipes'
 import { RecipeList } from '@/components/RecipeList'
 import { StaticRecipeList } from '@/components/StaticRecipeList'
-import { InstallAppBanner } from '@/components/InstallAppBanner'
+import { Container } from '@/components/ui/Container'
 
 
 export default async function Home() {
   const recipeMetas: Metadata[] = await getAllRecipesMetadata()
   return (
-    <main>
-      <Suspense fallback={<StaticRecipeList recipeMetas={recipeMetas} />}>
-        <InstallAppBanner />
-        <RecipeList recipeMetas={recipeMetas} />
-      </Suspense>
-    </main>
+    <Container fullWidth={true}>
+      <main>
+        <Suspense fallback={<StaticRecipeList recipeMetas={recipeMetas} />}>
+          <RecipeList recipeMetas={recipeMetas} />
+        </Suspense>
+      </main>
+    </Container>
   )
 }
 

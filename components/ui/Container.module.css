@@ -3,3 +3,9 @@
   max-width: 1600px;
   margin: auto;
 }
+
+.container.full-width {
+  width: calc(100vw - 2 * var(--mobile-gutter));
+  max-width: 100%;
+  margin: auto;
+}

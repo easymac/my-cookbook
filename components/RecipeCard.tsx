@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import Image from 'next/image'
+import { Link } from 'next-view-transitions'
 import { Metadata } from '@cooklang/cooklang-ts'
 import { GiKnifeFork } from 'react-icons/gi'
 import styles from '@/components/RecipeCard.module.css'
