@@ -1,11 +1,16 @@
-import Link from 'next/link'
+import { Link } from 'next-view-transitions'
 import CONFIG from '@/cookbook.config'
-import styles from './Header.module.css'
-
+import { Logo } from './Logo'
+import styles from './SiteTitle.module.css'
 export function SiteTitle() {
   return (
-    <h1 className={styles['site-title']}>
-      <Link href="/">{CONFIG.siteTitle}</Link>
-    </h1>
+    <Link className={styles['site-title-wrapper']} href="/">
+      <div className={styles['logo']}>
+        <Logo />
+      </div>
+      <h1 className={styles['site-title']}>
+        {CONFIG.siteTitle}
+      </h1>
+    </Link>
   )
 }

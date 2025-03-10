@@ -1,0 +1,22 @@
+.site-title-wrapper {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+  text-decoration: none;
+}
+
+.site-title {
+  font-size: 0.9rem;
+  color: var(--primary-text);
+  font-weight: normal;
+}
+
+.logo {
+  --logo-size: 3rem;
+  width: var(--logo-size);
+  height: var(--logo-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
