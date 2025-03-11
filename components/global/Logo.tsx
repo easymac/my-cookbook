@@ -8,7 +8,7 @@ export function Logo() {
     ''
   const coverColor = CONFIG.themeColor
   return (
-    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 199.23 134.95">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 199.23 134.95">
       <defs>
         <style>
           {`.cover { fill: ${coverColor}; }`}
