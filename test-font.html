@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Embedding Test</title>
+  <style>
+    /* Include the test embedded font via data URI */
+    @font-face {
+      font-family: 'BagnardTest';
+      src: url('/public/fonts/Bagnard.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    .test-text {
+      font-family: 'BagnardTest', serif;
+      font-size: 40px;
+      margin: 30px;
+    }
+    
+    .fallback-text {
+      font-family: serif;
+      font-size: 40px;
+      margin: 30px;
+    }
+    
+    .svg-container {
+      margin: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Font Embedding Test</h1>
+  
+  <div class="test-text">This should use Bagnard font</div>
+  <div class="fallback-text">This uses fallback font</div>
+  
+  <div class="svg-container">
+    <h2>SVG with embedded font:</h2>
+    <object data="/public/logo.svg" type="image/svg+xml" width="300" height="200"></object>
+  </div>
+</body>
+</html> 
