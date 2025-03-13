@@ -10,7 +10,9 @@
 .mobile-nav {
   display: flex;
   justify-content: space-between;
-  background: var(--secondary-background);
+  background: rgba(var(--secondary-background-ints), 0.8);
+  border: 2px solid var(--secondary-background);
+  backdrop-filter: blur(50px);
   border-top-left-radius: 3rem;
   border-top-right-radius: 3rem;
   margin-left: -1rem;
@@ -42,7 +44,7 @@
   transition: max-width 0.2s ease-in-out;
 }
 .mobile-nav a[data-active=true] {
-  background: var(--tertiary-background);
+  background: var(--primary-background);
   max-width: 100%;
 }
 

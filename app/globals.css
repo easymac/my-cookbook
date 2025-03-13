@@ -13,7 +13,8 @@
   --light-primary-background: white;
   --light-primary-background-gradient: linear-gradient(to bottom, #E3E3E3, #FFFFFF);
   --light-header-background-gradient: linear-gradient(to bottom, #E3E3E3FF 30%, #E3E3E300);
-  --light-secondary-background: #f0f0f0;
+  --light-secondary-background: #EBEDEC;
+  --light-secondary-background-ints: 235, 237, 236;
   --light-tertiary-background: #d9d9d9;
   --light-quaternary-background: #b4b4b4;
   --light-primary-text: black;
@@ -24,6 +25,7 @@
   --dark-primary-background-gradient: linear-gradient(to bottom, #171717, #000000);
   --dark-header-background-gradient: linear-gradient(to bottom, #171717FF 30%, #17171700);
   --dark-secondary-background: #171717;
+  --dark-secondary-background-ints: 23, 23, 23;
   --dark-tertiary-background: #2a2a2a;
   --dark-quaternary-background: #4e4e4e;
   --dark-primary-text: white;
@@ -34,6 +36,7 @@
   --primary-background-gradient: var(--light-primary-background-gradient);
   --primary-header-background-gradient: var(--light-header-background-gradient);
   --secondary-background: var(--light-secondary-background);
+  --secondary-background-ints: var(--light-secondary-background-ints);
   --tertiary-background: var(--light-tertiary-background);
   --quaternary-background: var(--light-quaternary-background);
   --accent-background: var(--dark-primary-background);
@@ -62,6 +65,7 @@
     --primary-background-gradient: var(--dark-primary-background-gradient);
     --primary-header-background-gradient: var(--dark-header-background-gradient);
     --secondary-background: var(--dark-secondary-background);
+    --secondary-background-ints: var(--dark-secondary-background-ints);
     --tertiary-background: var(--dark-tertiary-background);
     --quaternary-background: var(--dark-quaternary-background);
     --accent-background: var(--light-primary-background);
@@ -80,6 +84,7 @@ body.dark-theme {
   --primary-background-gradient: var(--dark-primary-background-gradient);
   --primary-header-background-gradient: var(--dark-header-background-gradient);
   --secondary-background: var(--dark-secondary-background);
+  --secondary-background-ints: var(--dark-secondary-background-ints);
   --tertiary-background: var(--dark-tertiary-background);
   --quaternary-background: var(--dark-quaternary-background);
   --accent-background: var(--light-primary-background);
