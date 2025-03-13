@@ -22,7 +22,7 @@ function isEmoji(character) {
 
 // Create directories if they don't exist
 const publicDir = path.join(__dirname, '../public');
-const iconsDir = path.join(publicDir, 'icons');
+const iconsDir = path.join(publicDir, 'favicons');
 if (!fs.existsSync(iconsDir)) {
   fs.mkdirSync(iconsDir, { recursive: true });
 }
@@ -156,7 +156,12 @@ async function generateImages() {
   for (const size of sizes) {
     const outputPath = path.join(iconsDir, `${size.name}.png`);
     await sharp(svgBuffer)
-      .resize(size.width, size.height)
+      .resize({
+        width: size.width,
+        height: size.height,
+        fit: 'contain',
+        background: { r: 255, g: 255, b: 255, alpha: 0 } // Transparent background
+      })
       .png()
       .toFile(outputPath);
     
@@ -177,7 +182,12 @@ async function generateImages() {
     console.error('Error generating favicon.ico:', error);
     // Fallback to single-size favicon
     await sharp(svgBuffer)
-      .resize(32, 32)
+      .resize({
+        width: 32,
+        height: 32,
+        fit: 'contain',
+        background: { r: 255, g: 255, b: 255, alpha: 0 } // Transparent background
+      })
       .png()
       .toFile(path.join(publicDir, 'favicon.ico'));
     console.log('Generated fallback favicon.ico (32x32)');

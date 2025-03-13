@@ -3,5 +3,5 @@ module.exports = {
   themeColor: '#9747ff',
   siteDescription: 'A collection of my recipes',
   siteURL: 'https://cookbook.carrithers.me',
-  faviconDirectory: '/favicons/logo-a',
+  faviconDirectory: '/favicons',
 }
