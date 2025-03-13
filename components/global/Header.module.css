@@ -4,7 +4,7 @@
   z-index: 9999;
 
   max-width: 100vw;
-  background: var(--primary-background);
+  background: var(--primary-header-background-gradient);
 }
 
 .header {
