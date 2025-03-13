@@ -1,6 +1,6 @@
 module.exports = {
   siteTitle: 'Mac\'s Cookbook',
-  themeColor: '#9747ff',
+  themeColor: '#FFFFFF',
   siteDescription: 'A collection of my recipes',
   siteURL: 'https://cookbook.carrithers.me',
   faviconDirectory: '/favicons',
