@@ -1,7 +1,6 @@
 import CONFIG from '@/cookbook.config'
 import { notFound } from 'next/navigation'
 import { getRecipeBySlug, getAllRecipesMetadata } from '@/lib/recipes'
-import { Container } from '@/components/ui/Container'
 import { StartCookingButton } from './StartCookingButton'
 import { Controls } from './Controls'
 import { DescriptionExpander } from './DescriptionExpander'

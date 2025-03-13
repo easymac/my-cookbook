@@ -11,13 +11,11 @@ import { Container } from '@/components/ui/Container'
 export default async function Home() {
   const recipeMetas: Metadata[] = await getAllRecipesMetadata()
   return (
-    <Container fullWidth={true}>
-      <main>
-        <Suspense fallback={<StaticRecipeList recipeMetas={recipeMetas} />}>
-          <RecipeList recipeMetas={recipeMetas} />
-        </Suspense>
-      </main>
-    </Container>
+    <main>
+      <Suspense fallback={<StaticRecipeList recipeMetas={recipeMetas} />}>
+        <RecipeList recipeMetas={recipeMetas} />
+      </Suspense>
+    </main>
   )
 }
 

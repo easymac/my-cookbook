@@ -1,7 +1,19 @@
 .recipe-card {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.75rem;
+  margin: 0 0.3rem 1.75rem;
+  padding: 0.3rem;
+  padding-bottom: 2rem;
+  border-radius: 2.2rem;
+
+  background: linear-gradient(120deg, var(--primary-background), rgba(var(--primary-background-ints), 0));
+}
+
+.recipe-card h3 {
+  margin: 1rem 0 0 0;
+  font-family: var(--young-serif);
+  font-weight: 500;
+  font-size: 2.25rem;
 }
 
 .recipe-card a {
@@ -10,8 +22,6 @@
 }
 
 .image-wrapper {
-  margin-left: -1rem;
-  margin-right: -1rem;
   display: block;
   aspect-ratio: 1.8;
   position: relative;
@@ -20,8 +30,6 @@
 }
 
 .image-placeholder {
-  margin-left: -1rem;
-  margin-right: -1rem;
   aspect-ratio: 1.8;
   position: relative;
   border-radius: 2rem;
