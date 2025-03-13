@@ -53,10 +53,6 @@
   pointer-events: none;
 }
 
-.back-button {
-
-}
-
 .mobile-panel-open .back-button {
   opacity: 1;
   transform: translateX(0) !important;
