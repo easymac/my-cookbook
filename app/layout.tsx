@@ -1,4 +1,4 @@
-import { publicSans, bagnard } from '@/app/fonts'
+import { publicSans, bagnard, youngSerif } from '@/app/fonts'
 import { MobileNav } from '@/components/global/MobileNav'
 
 import './globals.css'
@@ -6,7 +6,7 @@ import '@icon-park/react/styles/index.css'
 import { ViewTransitions } from 'next-view-transitions'
 
 export default function RootLayout(props: any) {
-  const fontClassNames = [publicSans.variable, bagnard.variable].join(' ')
+  const fontClassNames = [publicSans.variable, bagnard.variable, youngSerif.variable].join(' ')
   return (
     <ViewTransitions>
       <html lang="en" className={fontClassNames}>
