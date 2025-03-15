@@ -1,4 +1,4 @@
-import { Link } from 'next-view-transitions'
+import { Link } from 'next-view-transitions-2'
 import { Metadata } from '@cooklang/cooklang-ts'
 import { Container } from './ui/Container';
 import { GiKnifeFork } from 'react-icons/gi'

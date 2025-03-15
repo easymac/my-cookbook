@@ -20,7 +20,7 @@
     "eslint-config-next": "13.1.4",
     "motion": "^12.4.10",
     "next": "^15.2.1",
-    "next-view-transitions": "^0.3.4",
+    "next-view-transitions-2": "^0.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^4.7.1",

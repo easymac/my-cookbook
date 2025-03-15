@@ -1,4 +1,4 @@
-import { Link } from 'next-view-transitions'
+import { Link } from 'next-view-transitions-2'
 import styles from './Button.module.css'
 
 interface ButtonProps {

@@ -1,5 +1,5 @@
 'use client'
-import { useTransitionRouter } from 'next-view-transitions'
+import { useTransitionRouter } from 'next-view-transitions-2'
 import { Button } from '@/components/ui/Button'
 import { HiArrowLongLeft } from 'react-icons/hi2'
 

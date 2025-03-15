@@ -7,7 +7,7 @@ import DarkModeLoader from './DarkModeLoader'
 
 import './globals.css'
 import '@icon-park/react/styles/index.css'
-import { ViewTransitions } from 'next-view-transitions'
+import { ViewTransitions } from 'next-view-transitions-2'
 
 const sharedMetadata = getSharedMetadata()
 

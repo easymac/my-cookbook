@@ -1,4 +1,4 @@
-import { Link } from 'next-view-transitions'
+import { Link } from 'next-view-transitions-2'
 import CONFIG from '@/cookbook.config'
 import { Logo } from './Logo'
 import styles from './SiteTitle.module.css'
