@@ -5,6 +5,8 @@
 
   max-width: 100vw;
   background: var(--primary-header-background-gradient);
+  margin-bottom: 0.65rem;
+  padding: 1rem;
 }
 
 .header {
