@@ -3,6 +3,7 @@ import { MobileNav } from '@/components/global/MobileNav'
 import CONFIG from '@/cookbook.config'
 import { Metadata } from 'next'
 import { getSharedMetadata, getSharedViewport } from './SharedHead'
+import DarkModeLoader from './DarkModeLoader'
 
 import './globals.css'
 import '@icon-park/react/styles/index.css'
@@ -56,6 +57,7 @@ export default function RootLayout(props: any) {
       <html lang="en" className={fontClassNames}>
         <head />
         <body>
+          <DarkModeLoader />
           {props.children}
           <MobileNav />
         </body>
