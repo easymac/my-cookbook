@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
-const { JSDOM } = require('jsdom');
 const CONFIG = require('../cookbook.config');
 const pngToIco = require('png-to-ico');
 // Add opentype.js for text-to-path conversion
