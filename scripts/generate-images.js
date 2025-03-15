@@ -214,6 +214,7 @@ async function generateImages() {
   try {
     const icoBuffer = await pngToIco(pngPaths);
     fs.writeFileSync(path.join(publicDir, 'favicon.ico'), icoBuffer);
+    fs.writeFileSync(path.join(publicDir, 'favicons/favicon.ico'), icoBuffer);
     console.log('Generated favicon.ico with multiple sizes');
   } catch (error) {
     console.error('Error generating favicon.ico:', error);

@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { Metadata as PageMetadata } from 'next'
+import { Metadata as PageMetadata, Viewport } from 'next'
 import { Metadata } from '@cooklang/cooklang-ts'
 import CONFIG from '@/cookbook.config'
 import { getAllRecipesMetadata } from '@/lib/recipes'
@@ -28,11 +28,16 @@ const URLs = {
   msapplicationConfig: `${CONFIG.faviconDirectory}/browserconfig.xml`,
 }
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#E3E3E3' },
+    { media: '(prefers-color-scheme: dark)', color: '#171717' },
+  ],
+}
+
 export const metadata: PageMetadata = {
-  title: {
-    template: `%s - ${CONFIG.siteTitle}`,
-    default: CONFIG.siteTitle,
-  },
   metadataBase: new URL(CONFIG.siteURL),
   openGraph: {
     title: CONFIG.siteTitle,
@@ -53,10 +58,6 @@ export const metadata: PageMetadata = {
     apple: [
       { url: URLs.appleTouchIcon, sizes: '180x180' },
     ]
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
   },
   appleWebApp: {
     startupImage: [

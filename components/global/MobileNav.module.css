@@ -10,9 +10,9 @@
 .mobile-nav {
   display: flex;
   justify-content: space-between;
-  background: rgba(var(--secondary-background-ints), 0.8);
+  background: rgba(var(--secondary-background-ints), 0.9);
   border: 2px solid var(--secondary-background);
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(80px);
   border-top-left-radius: 3rem;
   border-top-right-radius: 3rem;
   margin-left: -1rem;

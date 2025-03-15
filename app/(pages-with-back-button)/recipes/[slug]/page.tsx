@@ -9,10 +9,18 @@ import { Instructions } from './Instructions'
 import { MetadataFields } from './MetadataFields'
 import { RecentlyViewedTracker } from './RecentlyViewedTracker'
 import styles from './Recipe.module.css'
-
+import { Viewport } from 'next'
 import { Recipe, Metadata } from '@cooklang/cooklang-ts'
 
 export const dynamic = 'error'
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#E3E3E3' },
+    { media: '(prefers-color-scheme: dark)', color: '#171717' },
+  ],
+}
+
 export default async function Page(
   { params }: { params: { slug: string } },
 ) {
@@ -87,18 +95,25 @@ export async function generateMetadata(
   if (!recipe) return {}
   const metadata = recipe.metadata
   const image = metadata.images.split(', ')[0]
+  const ogImage = image !== '' ? image : `${CONFIG.siteURL}/favicons/og-image.png`
 
   return {
-    title: metadata.title,
+    title: `${metadata.title} - ${CONFIG.siteTitle}`,
     description: metadata.description,
     openGraph: {
       title: `${metadata.title} - ${CONFIG.siteTitle}`,
       description: metadata.description,
+      type: 'website',
       url: `${CONFIG.siteURL}/recipes/${metadata.slug}`,
       images: [
-        { url: image !== '' ? image : `${CONFIG.siteURL}/favicons/og-image.png` },
+        { url: ogImage },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: metadata.title,
+      description: metadata.description,
+      images: [ogImage],
     }
   }
-
 }

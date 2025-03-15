@@ -1,6 +1,7 @@
 import CONFIG from '@/cookbook.config'
+import { Metadata, Viewport } from 'next'
 
-export function SharedHead() {
+export function getSharedMetadata(): Partial<Metadata> {
   const URLs = {
     16: `${CONFIG.faviconDirectory}/favicon-16x16.png`,
     32: `${CONFIG.faviconDirectory}/favicon-32x32.png`,
@@ -11,20 +12,31 @@ export function SharedHead() {
     msapplicationConfig: `${CONFIG.faviconDirectory}/browserconfig.xml`,
   }
 
-  return (
-    <>
-      <link rel="icon" type="image/png" href={URLs[16]} sizes="16x16" />
-      <link rel="icon" type="image/png" href={URLs[32]} sizes="32x32" />
-      <link rel="icon" type="image/png" href={URLs[48]} sizes="48x48" />
-      <link rel="apple-touch-icon" href={URLs.appleTouchIcon} sizes="180x180" />
-      <link rel="shortcut icon" href={URLs.favicon} />
+  return {
+    icons: {
+      icon: [
+        { url: URLs.favicon },
+        { url: URLs[16], sizes: '16x16', type: 'image/png' },
+        { url: URLs[32], sizes: '32x32', type: 'image/png' },
+        { url: URLs[48], sizes: '48x48', type: 'image/png' },
+      ],
+      apple: [
+        { url: URLs.appleTouchIcon, sizes: '180x180' },
+      ],
+      shortcut: URLs.favicon,
+    },
+    manifest: URLs.manifest,
+    other: {
+      'msapplication-config': URLs.msapplicationConfig,
+      'apple-mobile-web-app-capable': 'yes',
+      'mobile-web-app-capable': 'yes',
+    },
+  }
+}
 
-      <link rel="manifest" href={URLs.manifest} />
-      <meta name="msapplication-config" content={URLs.msapplicationConfig} />
-
-      <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="mobile-web-app-capable" content="yes" />
-    </>
-  )
+export function getSharedViewport(): Viewport {
+  return {
+    width: 'device-width',
+    initialScale: 1,
+  }
 }
