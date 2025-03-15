@@ -1,6 +1,5 @@
 import { Link } from 'next-view-transitions-2'
 import { Metadata } from '@cooklang/cooklang-ts'
-import { Container } from './ui/Container';
 import { GiKnifeFork } from 'react-icons/gi'
 import styles from '@/components/RecipeCard.module.css'
 
@@ -23,10 +22,10 @@ export function RecipeCard(
             <GiKnifeFork />
           </div>
         )}
-        <Container>
+        <div className={styles['recipe-card-content']}>
           <h3 className={styles['title']}>{metadata.title}</h3>
           <div className={styles['time']}>{metadata.time}</div>
-        </Container>
+        </div>
       </Link>
     </div>
   )
