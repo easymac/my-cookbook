@@ -2,7 +2,7 @@
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 199.23 134.95">
     <defs>
       <style>
-        .cover { fill: #9747ff; }
+        .cover { fill: #c2dbff; }
         .pages { fill: #ffffff; }
         .edges { fill: #000000; }
         .logo-text {

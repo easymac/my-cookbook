@@ -155,15 +155,52 @@ async function generateImages() {
   const pngPaths = [];
   for (const size of sizes) {
     const outputPath = path.join(iconsDir, `${size.name}.png`);
-    await sharp(svgBuffer)
-      .resize({
-        width: size.width,
-        height: size.height,
-        fit: 'contain',
-        background: { r: 255, g: 255, b: 255, alpha: 0 } // Transparent background
-      })
-      .png()
-      .toFile(outputPath);
+    
+    // Set background based on image type
+    let background = { r: 255, g: 255, b: 255, alpha: 0 }; // Default transparent background
+    
+    // Use solid white background for icon and og-image files
+    if (size.name === 'icon-192x192' || size.name === 'icon-512x512' || size.name === 'og-image') {
+      background = { r: 255, g: 255, b: 255, alpha: 1 }; // Solid white background
+      
+      // For these images, create a solid white background and composite the SVG on top
+      const whiteBackground = await sharp({
+        create: {
+          width: size.width,
+          height: size.height,
+          channels: 4,
+          background: { r: 255, g: 255, b: 255, alpha: 1 }
+        }
+      }).png().toBuffer();
+      
+      await sharp(whiteBackground)
+        .composite([
+          {
+            input: await sharp(svgBuffer)
+              .resize({
+                width: size.width,
+                height: size.height,
+                fit: 'contain',
+                background: { r: 255, g: 255, b: 255, alpha: 0 }
+              })
+              .toBuffer(),
+            gravity: 'center'
+          }
+        ])
+        .png()
+        .toFile(outputPath);
+    } else {
+      // For favicon images, keep the transparent background
+      await sharp(svgBuffer)
+        .resize({
+          width: size.width,
+          height: size.height,
+          fit: 'contain',
+          background: background
+        })
+        .png()
+        .toFile(outputPath);
+    }
     
     console.log(`Generated ${size.name}.png (${size.width}x${size.height})`);
     
