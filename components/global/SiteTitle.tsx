@@ -2,6 +2,7 @@ import { Link } from 'next-view-transitions'
 import CONFIG from '@/cookbook.config'
 import { Logo } from './Logo'
 import styles from './SiteTitle.module.css'
+
 export function SiteTitle() {
   return (
     <Link className={styles['site-title-wrapper']} href="/">

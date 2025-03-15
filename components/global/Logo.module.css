@@ -1,12 +1,4 @@
-.logo-text {
-  font-family: var(--bagnard);
-  text-decoration: none;
-
-}
-
-.pages {
-  fill: var(--primary-background);
-}
-.edges {
-  fill: var(--primary-text);
+.logo {
+  width: 100%;
+  height: 100%;
 }

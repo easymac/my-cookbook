@@ -139,6 +139,7 @@ const sizes = [
   { width: 192, height: 192, name: 'icon-192x192' },
   { width: 512, height: 512, name: 'icon-512x512' },
   { width: 1200, height: 630, name: 'og-image' },
+  { width: 180, height: 180, name: 'apple-touch-icon' },
 ];
 
 async function generateImages() {
@@ -156,53 +157,102 @@ async function generateImages() {
   for (const size of sizes) {
     const outputPath = path.join(iconsDir, `${size.name}.png`);
     
+    // Determine if this size should have padding
+    const shouldApplyPadding = ['icon-192x192', 'icon-512x512', 'og-image', 'apple-touch-icon'].includes(size.name);
+    
+    // Calculate the inner content size (80% of total if padding should be applied)
+    const innerWidth = shouldApplyPadding ? Math.floor(size.width * 0.8) : size.width;
+    const innerHeight = shouldApplyPadding ? Math.floor(size.height * 0.8) : size.height;
+    
+    // Calculate padding for centering (10% of the width/height if padding should be applied)
+    const paddingX = shouldApplyPadding ? Math.floor(size.width * 0.1) : 0;
+    const paddingY = shouldApplyPadding ? Math.floor(size.height * 0.1) : 0;
+    
     // Set background based on image type
     let background = { r: 255, g: 255, b: 255, alpha: 0 }; // Default transparent background
     
-    // Use solid white background for icon and og-image files
-    if (size.name === 'icon-192x192' || size.name === 'icon-512x512' || size.name === 'og-image') {
-      background = { r: 255, g: 255, b: 255, alpha: 1 }; // Solid white background
+    // Use solid background for icon, og-image, and apple-touch-icon files
+    if (size.name === 'icon-192x192' || size.name === 'icon-512x512' || size.name === 'og-image' || size.name === 'apple-touch-icon') {
+      background = { r: 227, g: 227, b: 227, alpha: 1 }; // Light gray background (#EBEBEB)
       
-      // For these images, create a solid white background and composite the SVG on top
-      const whiteBackground = await sharp({
+      // Create a solid background
+      const solidBackground = await sharp({
         create: {
           width: size.width,
           height: size.height,
           channels: 4,
-          background: { r: 255, g: 255, b: 255, alpha: 1 }
+          background: { r: 227, g: 227, b: 227, alpha: 1 }
         }
       }).png().toBuffer();
       
-      await sharp(whiteBackground)
+      // Resize SVG to the inner content size
+      const resizedSvg = await sharp(svgBuffer)
+        .resize({
+          width: innerWidth,
+          height: innerHeight,
+          fit: 'contain',
+          background: { r: 255, g: 255, b: 255, alpha: 0 }
+        })
+        .toBuffer();
+      
+      await sharp(solidBackground)
         .composite([
           {
-            input: await sharp(svgBuffer)
-              .resize({
-                width: size.width,
-                height: size.height,
-                fit: 'contain',
-                background: { r: 255, g: 255, b: 255, alpha: 0 }
-              })
-              .toBuffer(),
-            gravity: 'center'
+            input: resizedSvg,
+            left: paddingX,
+            top: paddingY
           }
         ])
         .png()
         .toFile(outputPath);
     } else {
-      // For favicon images, keep the transparent background
-      await sharp(svgBuffer)
-        .resize({
-          width: size.width,
-          height: size.height,
-          fit: 'contain',
-          background: background
-        })
-        .png()
-        .toFile(outputPath);
+      // For favicon and other images
+      if (shouldApplyPadding) {
+        // Create a transparent background with padding
+        const transparentBackground = await sharp({
+          create: {
+            width: size.width,
+            height: size.height,
+            channels: 4,
+            background: { r: 255, g: 255, b: 255, alpha: 0 }
+          }
+        }).png().toBuffer();
+        
+        // Resize SVG to the inner content size
+        const resizedSvg = await sharp(svgBuffer)
+          .resize({
+            width: innerWidth,
+            height: innerHeight,
+            fit: 'contain',
+            background: { r: 255, g: 255, b: 255, alpha: 0 }
+          })
+          .toBuffer();
+        
+        await sharp(transparentBackground)
+          .composite([
+            {
+              input: resizedSvg,
+              left: paddingX,
+              top: paddingY
+            }
+          ])
+          .png()
+          .toFile(outputPath);
+      } else {
+        // Original behavior for favicon sizes without padding
+        await sharp(svgBuffer)
+          .resize({
+            width: size.width,
+            height: size.height,
+            fit: 'contain',
+            background: { r: 255, g: 255, b: 255, alpha: 0 }
+          })
+          .png()
+          .toFile(outputPath);
+      }
     }
     
-    console.log(`Generated ${size.name}.png (${size.width}x${size.height})`);
+    console.log(`Generated ${size.name}.png (${size.width}x${size.height})${shouldApplyPadding ? ' with 10% border' : ''}`);
     
     // Save paths of favicon-sized images for ico generation
     if (size.width <= 48) {

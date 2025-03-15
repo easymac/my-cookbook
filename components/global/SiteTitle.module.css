@@ -13,9 +13,11 @@
 }
 
 .logo {
-  --logo-size: 3rem;
+  --logo-size: 48px;
   width: var(--logo-size);
   height: var(--logo-size);
+  min-width: var(--logo-size);
+  min-height: var(--logo-size);
   display: flex;
   align-items: center;
   justify-content: center;
