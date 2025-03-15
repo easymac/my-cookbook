@@ -1,6 +1,6 @@
 {
-  "name": "My Cookbook",
-  "short_name": "Cookbook",
+  "name": "Mac's Cookbook",
+  "short_name": "Mac's Cookbook",
   "description": "A collection of my recipes",
   "start_url": "/",
   "display": "standalone",
