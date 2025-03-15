@@ -22,7 +22,7 @@ export const viewport: Viewport = {
 }
 
 export default async function Page(
-  { params }: { params: { slug: string } },
+  { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
   const recipe: Recipe = getRecipeBySlug(slug)
@@ -81,14 +81,14 @@ export default async function Page(
 }
 
 export async function generateStaticParams() {
-  const recipeMetas = getAllRecipesMetadata()
+  const recipeMetas = await getAllRecipesMetadata()
   return recipeMetas.map((meta) => ({
     slug: meta.slug,
   }))
 }
 
 export async function generateMetadata(
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;
   const recipe = getRecipeBySlug(slug)

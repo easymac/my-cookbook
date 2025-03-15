@@ -6,16 +6,23 @@ import { getAllRecipesMetadata } from '@/lib/recipes'
 import { RecipeList } from '@/components/RecipeList'
 import { StaticRecipeList } from '@/components/StaticRecipeList'
 import { Container } from '@/components/ui/Container'
+import { Header } from '@/components/global/Header'
 
 
 export default async function Home() {
   const recipeMetas: Metadata[] = await getAllRecipesMetadata()
+  if (recipeMetas.length === 0) {
+    return <div>No recipes found</div>
+  }
   return (
+    <>
+    <Header showBackButton={false} />
     <main>
       <Suspense fallback={<StaticRecipeList recipeMetas={recipeMetas} />}>
         <RecipeList recipeMetas={recipeMetas} />
       </Suspense>
     </main>
+    </>
   )
 }
 

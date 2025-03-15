@@ -29,7 +29,7 @@ export function getRecipeBySlug(slug: string): Recipe {
   return recipeMap.get(slug)
 }
 
-export function getAllRecipesMetadata(): Metadata[] {
+export async function getAllRecipesMetadata(): Promise<Metadata[]> {
   return Array.from(recipeMap.values()).map((recipe) => recipe.metadata)
 }
 
