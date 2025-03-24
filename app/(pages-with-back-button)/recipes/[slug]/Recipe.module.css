@@ -111,6 +111,7 @@
   display: flex;
   gap: 2rem;
   margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 .grid-wrapper > *:first-child {
   width: 40%;
