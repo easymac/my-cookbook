@@ -3,7 +3,6 @@ import CONFIG from '@/cookbook.config'
 import packageJson from '@/package.json'
 
 export default async function About() {
-  console.log(packageJson)
   return (
     <main>
       <h1>About {CONFIG.siteTitle}</h1>
