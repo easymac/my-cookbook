@@ -19,6 +19,7 @@
   overflow: hidden;
 
   width: 60%;
+  margin: 0 -2rem;
 }
 
 .title {
@@ -68,6 +69,10 @@
 @media (max-width: 768px) {
   .title {
     font-size: 3rem;
+  }
+
+  .image-wrapper {
+    margin: 0;
   }
 
   .description-expander {
