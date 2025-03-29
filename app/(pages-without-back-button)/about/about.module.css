@@ -1,0 +1,43 @@
+.main-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: auto;
+  overflow: clip;
+  border-radius: 1rem;
+  border: 1px solid var(--tertiary-background);
+  background: var(--primary-background);
+  padding: 4rem;
+  padding-right: 15rem;
+  box-sizing: border-box;
+}
+
+.header-wrapper {
+  display: block;
+}
+
+.site-about {
+  flex: 1;
+}
+
+.site-about p {
+  line-height: 1.4;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+}
+
+.platform-about {
+  flex: 1;
+}
+
+.platform-about p {
+  color: var(--secondary-text);
+  margin-bottom: 4rem;
+}
