@@ -47,6 +47,7 @@
 .menu-item {
   padding: 2rem 0;
   border-top: 1px solid var(--tertiary-background);
+  cursor: pointer;
 }
 
 .item-heading {
